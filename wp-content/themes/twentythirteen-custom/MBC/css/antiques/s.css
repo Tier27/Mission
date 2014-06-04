@@ -1,0 +1,93 @@
+/* ==================
+Tier 27
+Copyright 2013
+written for - www.butinapi.com
+
+swatch colors
+=====================
+#C03737 - Dark Red
+#2e3720 - Dark Green
+===================== */
+
+/* Links and Typography 
+===================== */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+#homepage {
+  color: #D8D8D8;
+}
+
+body {
+  
+  /*background: url('img/mbc-background.png') no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  background: url('../img/darkestlane.jpg');
+}
+
+a:link, a:active, a:visited {
+  text-decoration: none;
+}
+
+strong {
+  font-weight: bolder;
+}
+
+@font-face {
+font-family: MyriadPro-Regular;
+src: url('MyriadPro-Regular.otf');
+}
+
+@font-face {
+font-family: Copperplate-Gothic-Light;
+src: url('Copperplate-Gothic-Light.ttf');
+}
+
+/* Global Styling 
+====================*/
+
+/* Layout
+===================== */
+.container {
+  width: 960px;
+  height: 525px;
+  margin: 0 auto;
+  padding: 0 30px;
+  color: #FFFFFF;
+}
+
+.clear {
+  clear: both;
+}
+
+/* Homepage
+===================== */
+
+/* Slider */
+.gallery-container {
+  width: 700px;
+  margin: 0 auto;
+}
+
+#thumbnails ul li {
+  display: inline-block;
+  list-style: none;
+}
+
+#thumbnails img {
+  margin-right: 10px;
+}
+
+.menu-col-alpha-main-pic {
+  margin-top: 1%;
+}
+
+.menu-col-alpha-main-pic img {
+  width: 100%;
+  height: 466px;
+}

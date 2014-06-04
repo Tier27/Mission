@@ -1,0 +1,96 @@
+jQuery( function( $ ) {
+
+	$('#action').val( 'add_reservation' );
+
+	$('.reservations .submit, #cnb').click(function(e) { 
+		e.preventDefault();
+
+		$(this).html($('#name').val());
+		var ajaxdata = {
+			action: 	$('#action').val(),
+			hours: 		$('#hours').val(),
+			name: 		$('#name').val(),
+			company: 	$('#company').val(),
+			phone: 		$('#phone').val(),
+			email: 		$('#email').val(),
+			notes: 		$('#notes').val(),
+			paid: 		$('#paid').val(),
+			date: 		$('#date').val(),
+			lanes: 		$('#lanes').val(),
+			bowlers: 	$('#bowlers').val(),
+		};
+		
+		$.post( ajaxurl, ajaxdata, function(res){
+			$('#cnb-result').html(res);
+		});
+	});
+
+//	$('#reservation-target').hide();
+
+//	$('#calendar-target').hide();
+
+	$('.tab').hide();
+
+	$('#calendar').show();
+
+//	$('#reservation').show();
+
+	$('#reservation-trigger').click(function(e) { 
+
+		$('.tab').hide();
+		$('#reservation').show();
+		$(this).addClass('active');
+
+	});
+
+	$('#calendar-trigger').click(function(e) { 
+
+		$('.nav-tabs li a').removeClass('active');
+		$('.tab').hide();
+		$('#calendar').show();
+		$(this).addClass('active');
+
+	});
+
+	$('.hours').click( function() {
+
+		$('#hours').val('test');
+
+		var arr =  new Array();
+
+		$.each( $('.hours:checked'), function( index, value ) {
+	
+			arr[index] = $(value).val();
+
+		});
+
+		var str = arr.join();
+		$('#hours').val(str);
+
+	});
+
+                $('#reportrange').datepicker().change(function() {
+
+                        $(this).val('te');
+			var ajaxdata = {
+			action: 	'print_calendar_contents',
+			date:		$(this).val()
+			hours: 		$('#hours').val(),
+			name: 		$('#name').val(),
+			company: 	$('#company').val(),
+			phone: 		$('#phone').val(),
+			email: 		$('#email').val(),
+			notes: 		$('#notes').val(),
+			paid: 		$('#paid').val(),
+			date: 		$('#date').val(),
+			lanes: 		$('#lanes').val(),
+			bowlers: 	$('#bowlers').val(),
+		};
+		
+		$.post( ajaxurl, ajaxdata, function(res){
+			$('#cnb-result').html(res);
+		});
+
+                });
+
+});

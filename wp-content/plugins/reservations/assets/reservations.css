@@ -1,0 +1,40 @@
+.dropdown-active {
+
+	background: grey !important;
+
+}
+
+.opaque {
+
+	opacity: .7;
+
+}
+
+.bold {
+
+	font-weight: bold;
+
+}
+
+.bordered {
+
+	border: solid 1px;
+
+}
+
+.dark {
+
+	background: grey;
+
+}
+
+
+.btn-trimmed{padding:6px 4px;}
+/*.canceled,.pending{display:none;padding:0px;margin:0px;width:100%;}*/
+.canceled-reservation{background: #d2322d;width:100%;}
+.pending-reservation{background: #ffa07a;width:100%;}
+
+.hours { 
+	color: #000;
+}
+.glyphicon { cursor: pointer; }
