@@ -546,10 +546,10 @@ function twentythirteen_customize_preview_js() {
 	wp_enqueue_script( 'twentythirteen-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20130226', true );
 }
 add_action( 'customize_preview_init', 'twentythirteen_customize_preview_js' );
-$db_host     = "localhost";
-$db_username = "tiercom_wizard";
-$db_password = "wizard_sticks1!1";
-$db_name     = "tiercom_mbc";
+$db_host     = DB_HOST;
+$db_username = DB_USER;
+$db_password = DB_PASSWORD;
+$db_name     = DB_NAME;
 $conn = mysql_connect($db_host,$db_username,$db_password) or die("Could not connect to Server" .mysql_error());
 
 function clean_order() 	{ 
