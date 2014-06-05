@@ -1,0 +1,176 @@
+/*
+	Eventon Full Calendar styles
+	version 0.14
+*/
+
+	.evoFC_tip{
+		position:absolute;
+		background-color:#9e9e9e;
+		color:#f7f7f7;
+		padding:2px 6px;
+		line-height:110%;
+		font-size:10px;
+		z-index: 800;
+	}	
+	.evoFC_tip:before{
+		content:"";
+		width: 0px;
+		height: 0px;
+		border-style: solid;
+		border-width: 5px 5px 0 0;
+		border-color: #9e9e9e transparent transparent transparent;
+		position:absolute;
+		left:0;
+		bottom:-5px;
+	}
+		.evoFC_tip.leftyy:before{
+			border-width: 0 5px 5px 0;
+			border-color: transparent #9e9e9e transparent transparent;
+			right:0;
+			left:auto;
+		}
+
+
+	.eventon_fullcal {
+		padding:0px 0 10px;
+		overflow:hidden;
+		width:100%;
+		position:relative;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.evofc_month{float:left;}	
+
+	.eventon_fullcal .eventon_fc_daynames .evo_fc_day{font-size:14px;}
+	.eventon_fullcal .eventon_fc_daynames .evo_fc_day:hover{cursor:default; color:#d4d4d4}
+
+	.eventon_fullcal .evo_fc_day{
+		display:block;
+		margin:0;
+		float:left;
+		width:14.27%;
+		text-align:center;
+		min-height:5px;
+		cursor:pointer;
+		border-top:3px solid transparent;
+		font-size:20px;
+		padding:4px 0;
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+		box-sizing: border-box;
+		-webkit-transition: all .2s ease;
+		-moz-transition: all .2s ease;
+		-ms-transition: all .2s ease;
+		-o-transition: all .2s ease;
+		transition: all .2s ease;
+	}
+
+	.eventon_fullcal .evo_fc_day.highl{
+		background-color:#faf8f5
+	}
+
+	.eventon_fullcal .evo_fc_day.evo_fc_empty{
+		cursor:default
+	}
+
+	.eventon_fullcal .evo_fc_day.evo_fc_empty:hover{
+		background-color:transparent
+	}
+	.eventon_fullcal .evo_fc_day.on_focus{
+		border-top:1px solid #9e9e9e;
+	}
+	.evo_fc_day.has_events{font-weight:700}
+
+	.eventon_fullcal p{
+		color: #d8d8d8;
+		padding: 0;
+		margin: 0;
+		text-transform: uppercase;
+		font-size: 13px;
+		font-family: oswald, 'arial narrow';
+	}
+
+
+/* widget **/
+	.evo_fc_widget .eventon_fullcal .eventon_fc_daynames .evo_fc_day{
+		display:block;
+		font-size: 0;
+	}
+	.evo_fc_widget .eventon_fullcal .eventon_fc_daynames .evo_fc_day:first-letter{
+		visibility:visible;
+		font-size: 12px;
+	}
+
+	.evo_fc_widget .eventon_fullcal .evo_fc_day{
+		font-size:12px;
+		padding: 10px 0
+	}
+
+
+/* new grid boxes */
+	.eventon_fullcal .evo_fc_day{
+		border-top:1px solid #F7F7F7;
+		border-right:1px solid #F7F7F7;
+	}
+	.eventon_fullcal .evo_fc_day.bb{
+		border-bottom:1px solid #F7F7F7;
+	}
+	.eventon_fullcal .evo_fc_day.br{
+		border-right:1px solid #F7F7F7;
+	}
+	.eventon_fc_days, .eventon_fc_daynames{border-left:1px solid #F7F7F7;}
+	.eventon_fc_days .evo_fc_day{
+		padding:30px 0;
+	}
+	
+	.eventon_fc_days .evo_fc_day.has_events, .eventon_fc_days, .eventon_fc_daynames{position: relative;}
+	.eventon_fc_days .evo_fc_day.has_events em{
+		position: absolute;
+		font:normal 12px 'open sans', arial;
+		margin-top: -5px;
+		margin-left: 5px;
+		color: #D6D6D6;
+	}
+
+	.evo_fc_widget .eventon_fc_days .evo_fc_day.has_events span{display: none;}
+	.eventon_fc_days .evo_fc_day.has_events span{
+		bottom: 20px;
+		width: 100%;
+		left: 0;
+		position:absolute;
+	}
+	.eventon_fc_days .evo_fc_day.has_events span i{
+		height:5px; width: 5px;
+		display: inline-block;
+		border-radius: 50%;
+		background-color: #DADADA;
+		margin: 0 1px;
+	}
+	.eventon_fc_days .evo_fc_day.has_events span b{
+		margin: 0 1px;display: inline-block;
+		font-size: 8px; font-weight: normal;
+		text-transform: none;
+		color: #DADADA;
+		font-family: arial;
+	}
+
+	.evofc_title_tip{
+		position: absolute;
+		background-color:#9e9e9e;
+		color:#f7f7f7;
+		padding:2px 6px;
+		line-height:110%;
+		font-size:10px; font-style: italic;
+		z-index: 999;
+	}
+	.evofc_title_tip:before{
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 5px 0 0 5px;
+		border-color: transparent transparent transparent #9e9e9e;
+		position:absolute;
+		left:0;
+		top:-5px;
+		content: "";
+	}
