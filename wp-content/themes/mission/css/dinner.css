@@ -1,0 +1,123 @@
+/* ==================
+Tier 27
+Copyright 2013
+written for - www.missionbowlingclub.com
+
+swatch colors
+=====================
+#b5121b - Dark Red
+#2e3720 - Dark Green
+#7f7f7f - Light Gray
+#D8D8D8 - Off-White
+#c05937 - Orange
+===================== */
+
+/* Links and Typography 
+===================== */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  
+  /*background: url('../img/mbc-background.png') no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  background-repeat: repeat;
+}
+
+a {
+  color: #b5121b;
+}
+
+a:hover {
+  color: #7f7f7f;
+}
+
+a:link, a:active, a:visited {
+  text-decoration: none;
+}
+
+#dinner h2 {
+  margin-bottom: 3%;
+  font-size: 22px;
+  font-weight: normal;
+  color: #b5121b;
+  font-family: 'Copperplate-Gothic-Light';
+}
+
+strong {
+  font-weight: bolder;
+}
+
+/* Global Styling 
+====================*/
+
+/* Three Dots */
+span.dots {
+display: inline-block;
+}
+
+h2.dots {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Layout
+===================== */
+.container {
+  width: 960px;
+  min-height: 100px;
+  margin: 3% auto;
+  padding: 0 30px;
+  color: #FFFFFF;
+}
+
+.clear {
+  clear: both;
+}
+
+/* Dinner Page
+===================== */
+
+.menu-col-alpha, .menu-col-beta {
+  position: relative;
+  display: inline-block;
+  float: left;
+  width: 48%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.menu-col-alpha p, .menu-col-beta p {
+  font-family: 'MyriadPro-Regular';
+  font-size: 14px;
+  line-height: 145%;
+  word-spacing: 1px;
+  text-align: justify;
+}
+
+/* Col Alpha */
+
+.menu-col-alpha {
+  margin-right: 4%;
+}
+
+.menu-col-alpha p {
+
+}
+
+.menu-col-alpha-main-pic img {
+}
+
+.menu-pdf  {
+  border: 1px solid white;
+  height: 100%;
+  width: 100%; 
+}
+
+.menu-pdf img { width: 100%; display: block; }
