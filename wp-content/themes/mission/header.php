@@ -3,14 +3,14 @@
 <head>
   <?php wp_head(); ?>
   <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/partial-bootstrap.css">
-  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/css/custom-style.css">
+  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/reservations/css/custom-style.css">
   <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/header.css">
   <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
-  <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/css/daterangepicker-bs3.css" />
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/js/jquery.js"></script>
+  <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/reservations/css/daterangepicker-bs3.css" />
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reservations/js/jquery.js"></script>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
   <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/js/bootstrap.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reservations/js/bootstrap.js"></script>
   <meta charset='utf-8'> 
   <title>Mission Bowling Club</title>
 </head>

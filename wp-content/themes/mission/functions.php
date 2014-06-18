@@ -554,25 +554,25 @@ function get_image_name($place)	{ $place = mysql_fetch_array(mysql_query("select
 				  $image = mysql_fetch_array(mysql_query("select name from images where id='$src_id'")); $src=$image['name'];
 				  return $src; }
 
-function return_image($place)	{ $src=get_image_name($place); if (!empty($src)) { $src_path=get_template_directory_uri()."/MBC/imagene/uploads/$src"; } return "<img class='gallery-image' id='$place' src='$src_path'>"; }
+function return_image($place)	{ $src=get_image_name($place); if (!empty($src)) { $src_path=get_template_directory_uri()."/imagene/uploads/$src"; } return "<img class='gallery-image' id='$place' src='$src_path'>"; }
 
 function return_image_by_src($src)	{ 
 	$server=$_SERVER['SERVER_ADDR'];
-	$src_path="http://$server/MBC/imagene/uploads/$src"; 
+	$src_path="http://$server/imagene/uploads/$src"; 
 	return "<img src='$src_path'>"; }
 
 function return_fadein_image($place)	{ 
 	$src=get_image_name($place); if (!empty($src)) { 
 		$server=$_SERVER['SERVER_ADDR'];
-		$src_path="http://".get_template_directory_uri()."/MBC/imagene/uploads/$src"; 
+		$src_path="http://".get_template_directory_uri()."/imagene/uploads/$src"; 
 	} 
 	return "<img class='fadein' width=50 height=50 id='$place' src='$src_path'>"; 
 }
 
 function fadein_image($src) {
 	$server=$_SERVER['SERVER_ADDR'];
-	$src_path="http://".get_template_directory_uri()."/MBC/imagene/uploads/$src"; 
-	$src_path="http://".get_template_directory_uri()."/MBC/imagene/uploads/$src"; 
+	$src_path="http://".get_template_directory_uri()."/imagene/uploads/$src"; 
+	$src_path="http://".get_template_directory_uri()."/imagene/uploads/$src"; 
 	return "<img class='fadein' width=50 height=50 src='$src_path'>"; 
 }
 	

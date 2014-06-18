@@ -122,12 +122,16 @@ h2.dots {
   position: relative;
   display: inline-block;
   float: left;
-  width: 20%;
+  width: 27%;
 }
 
 .event-subheader-image {
   border: 2px solid #b5121b;
   margin-right: 6%;
+}
+
+.event-subheader-image:last-child {
+  margin-right: 0%;
 }
 
 .event-subheader-title {
@@ -155,6 +159,7 @@ h2.dots {
 /* Plan an Event Alpha */
 #plan-event-alpha {
   width: 66%;
+  width: 100%;
   margin-bottom: 2%;
 }
 
@@ -171,6 +176,7 @@ h2.dots {
   position: relative;
   display: inline-block;
   width: 66%;
+  width: 100%;
   margin-bottom: 2%;
   margin: 2% 0;
   

@@ -2,6 +2,11 @@
 <?php
 
 	echo "START";
+	$date = new rvDate();
+	print_r( $date->canceled );
+	$date->sanitize_cancelations( 1762 );
+	echo 'DONE';
+	die;
 	//rvSettings::speak();
 	$posts = rvWordPress::get_all_posts();
 	//print_r( $posts );

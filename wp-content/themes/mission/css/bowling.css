@@ -27,7 +27,6 @@ body {
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-size: cover;*/
-  background: url('img/test2.png');
   background-repeat: repeat;
 }
 
@@ -48,7 +47,7 @@ a:link, a:active, a:visited {
 }
 
 #bowling h2, #bowling h3 {
-  font-weight: normal;
+  font-weight: bold;
   color: #b5121b;
   font-family: 'Copperplate-Gothic-Light';
 }
@@ -130,11 +129,11 @@ h2.dots {
 ===================== */
 
 .bowling-col-alpha {
-  position: relative;
+  position; absolute; 
   display: inline-block;
-  float: left;
+  bottom: 0px;
+  left: 0px;
   width: 70%;
-  margin-bottom: 2%;
 }
 
 .bowling-col-alpha p {
@@ -215,15 +214,14 @@ ul.tabs li a.active {
 /* Content Area */
 .content {  
     background-color:#0d0d0d;  
+    background-color:#606060;  
     padding:15px;  
     border:1px solid #333333;     
     height: 508px;
 }  
-#content_2, #content_3, #content_4 { display:none; 
-}  
-#content_3{
-  overflow: auto;
-}
+
+#content_2, #content_3, #content_4 { display:none; }  
+
 .content ul {  
     margin:0px;  
     padding:0px 20px 0px 20px;  
@@ -282,7 +280,7 @@ ul.tabs li a.active {
   border-bottom: 1px solid #7f7f7f; 
 }
 
-.answer { 
+.q .answer { 
   display: none; 
 }
 
@@ -325,4 +323,7 @@ ul.tabs li a.active {
 
 .table-striped tbody tr:hover {
    background-color: #636d76;
+}
+.container {
+	position: relative;
 }

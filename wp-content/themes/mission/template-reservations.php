@@ -5,17 +5,17 @@
 <head>
   <meta charset="UTF-8" />
   <title>MBC Reservation System</title>
-  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/css/custom-style.css">
-  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/css/bootstrap.css">
-  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/css/font-awesome.css">
+  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/reservations/css/custom-style.css">
+  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/reservations/css/bootstrap.css">
+  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/reservations/css/font-awesome.css">
   <link type='text/css' rel="stylesheet" href="<?php echo plugins_url(); ?>/reservations/assets/reservations.css?ver=1.01";
-  <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/css/daterangepicker-bs3.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/reservations/css/daterangepicker-bs3.css" />
  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/js/jquery.js"></script>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/js/bootstrap.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reservations/js/jquery.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reservations/js/bootstrap.js"></script>
   <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/js/moment.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reservations/js/moment.js"></script>
 </head>
 <body>
 <?php $date = new rvDate( date( 'Y-m-d' ) ); ?>
