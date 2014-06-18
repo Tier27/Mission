@@ -1,0 +1,273 @@
+/* Header 
+=====================*/
+
+/* Header Reservation Area */
+#header-container {
+  width: 960px;
+  margin: 0 auto 0 auto;
+}
+
+#header {
+  font-family: 'Copperplate-Gothic-Light';
+  float:left;
+  min-width:100%;
+  color: #ffffff;
+}
+
+#header-reservation {
+  padding: 0 30px;
+  position: relative;
+  height: 45px;
+  background-color: #b5121b;
+}
+
+#header-reservation-contents {
+  position: relative;
+  height: 40px;
+  width: 960px;
+  margin: 0 auto;
+}
+
+#social-media, #header-reservation-lane, #header-reservation-table, #header-reservation p {
+  position: relative;
+  display: inline-block;
+  float: left;
+}
+
+#social-media {
+  position: relative;
+  display: inline-block;
+  float: left;
+  min-width: 10%;
+  margin: 8px 15px 0 0;
+}
+
+#social-media li {
+  display: inline-block;
+}
+
+#social-media img {
+  width: 85%;
+}
+
+li.facebook a:hover, li.twitter a:hover, li.rss a:hover {
+  opacity: .8;
+}
+
+#header-reservation p {
+  font: bold 12px 'Arial', helvetica, times;
+  line-height: 30px;
+  color: #000000;
+}
+
+#header-reservation-lane {
+  margin: .75%;
+  /*margin: 10px 15px 10px 5px;*/
+  width: 45%;
+}
+
+#header-reservation-table {
+  margin: .75%;
+  width: 38%;
+  float: right;
+}
+
+select.reserve-lane-openings, select.reserve-lane-openings-number, select.reserve-table-openings, select.reserve-table-openings-time {
+  margin: 0 5px;
+}
+
+/* Dropdown Boxes */
+p.groups-box-title {
+  margin-top: 15px !important;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.select-box-alpha, .select-box-beta, .select-box-alpha-lanes {
+  position: relative;
+  display: inline-block;
+  float: left;
+  margin: 0 5px;
+  height: 25px;
+  overflow: hidden;
+  background: url('../img/mbc-dropdown.png') no-repeat right #FFF;
+  border: 1px solid #606060;
+  line-height: 25px;
+}
+
+.select-box-alpha {
+  width: 40%;
+}
+
+.select-box-alpha-lanes {
+  width: 12%;
+}
+
+.select-box-beta {
+  width: 25%;
+}
+
+.select-box-alpha select, .select-box-beta select, .select-box-alpha-lanes select {
+  background: transparent;
+  width: 120%;
+  overflow: hidden;
+  height: 100%;
+  font-size: 10px;
+  color: #606060;
+  text-indent: 3px;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+/* Go Button */
+input#gobutton {
+  position: relative;
+  display: inline-block;
+  float: right;
+  font-family: 'MyriadPro-Regular';
+  letter-spacing: 1px;
+  margin: 0px 0 0 5px;
+  cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+  padding:4px 6px 3px 6px; /*add some padding to the inside of the button*/
+  background:#7f7f7f; /*the colour of the button*/
+  border:1px solid #444444; /*required or the default border for the browser will appear*/
+  /*give the button curved corners, alter the size as required*/
+  /*give the button a drop shadow*/
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+  box-shadow: 0 0 4px rgba(0,0,0, .75);
+  /*style the text*/
+  color:#f3f3f3;
+  font-size:.9em;
+}
+
+
+/* Header Bottom */
+#header-nav, #header-logo, .header-banner {
+  float: left;
+  margin-top: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*Header Bottom Nav */
+#header-nav {
+  width: 24%;
+  list-style: none;
+}
+
+#header-nav li {
+  padding-left: 55px;
+  line-height: 160%;
+  list-style-type: none;
+  background-image: url(../img/navbar-triangle.png);
+  background-repeat: no-repeat;
+  background-position: 0 .35em;
+}
+
+#header-nav li span a {
+  color: #D8D8D8;
+}
+
+#header-nav li.indent-1 {
+  margin-left: 30px; 
+}
+
+#header-nav li.indent-2 {
+  margin-left: 60px; 
+}
+
+#header-nav li.indent-3 {
+  margin-left: 90px; 
+}
+
+#header-nav span {
+  color: #D8D8D8;
+  font-size: 15px;
+  text-transform: capitalize;
+  transition: .5s;
+}
+
+#header-nav span:hover {
+  transition: .5s;
+  margin-left: 7px;
+  color: #b5121b
+}
+
+/*Header Bottom Logo */
+#header-logo {
+  width: 50%;
+}
+
+#header-logo img {
+  width: 100%;
+}
+
+/*Header Bottom Banner */
+.header-banner {
+  width: 26%;
+  color: #D8D8D8;
+}
+
+#header-address-hours {
+  height: 100%;
+  padding-top: 2px;
+  text-align: right;
+}
+
+#header-address-hours p {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+p.header-important {
+  color: #b5121b;
+  
+}
+
+p.header-small {  
+  font-size: 13px !important;    
+  line-height: 1.4;    
+}
+
+#header-address-hours span {
+  font-size: 10px;
+}
+
+#header-stripe-left {
+  position: relative;
+  display: inline-block;
+  float: left;
+  padding-bottom: -20px !important;
+  border: 1px solid;
+  width: 200px;
+}
+
+#mbc-logo-bottom {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  float: left;
+}
+
+#mbc-logo-stripes {
+  position: relative;
+  display: inline-block;
+  float: left;
+  height: 20px;
+  background-image: url('../img/mbc-logo-stripes.png');
+  background-repeat: repeat-x;
+  margin-top: 10px;
+}
+
+#mbc-logo-club {
+  width: 10%;
+  position: relative;
+  display: inline-block;
+  float: left;
+  min-width: 115px;
+  padding: 0 5px;
+}

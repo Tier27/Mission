@@ -2,10 +2,10 @@
 <head <?php language_attributes('html'); ?>>
 <head>
   <?php wp_head(); ?>
-  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/MBC/css/partial-bootstrap.css">
+  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/partial-bootstrap.css">
   <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/css/custom-style.css">
-  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/MBC/css/header.css">
-  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/MBC/css/style.css">
+  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/header.css">
+  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
   <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/css/daterangepicker-bs3.css" />
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/js/jquery.js"></script>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
@@ -21,14 +21,14 @@
     <div id="header-reservation-contents">
     <script>
 	var template_path = "<?php echo get_template_directory_uri(); ?>";
-	function TSI($obj, $index, $path) { var AI = parseInt($obj.src.substr($obj.src.length-5)); if (AI == $index) { NI = AI + 3; $obj.src=template_path+"/MBC/"+$path+"/SMI-"+NI+".png"; } else { $obj.src=template_path+"/MBC/"+$path+"/SMI-"+$index+".png"; } }
+	function TSI($obj, $index, $path) { var AI = parseInt($obj.src.substr($obj.src.length-5)); if (AI == $index) { NI = AI + 3; $obj.src=template_path+"/"+$path+"/SMI-"+NI+".png"; } else { $obj.src=template_path+"/"+$path+"/SMI-"+$index+".png"; } }
     </script>
 	<div id="newid"></div>
         <div id="social-media">
             <ul>
 		<?php for ($i=1;$i<4;$i++) { 
 		$links = array('https://twitter.com/MissionBowling','https://www.facebook.com/missionbowlingclub', '#'); 
-		echo "<li><a href=".$links[$i-1]."><img src='".get_template_directory_uri()."/MBC/img/SMI-$i.png' onmouseover='TSI(this, $i,\"img\");'></a></li>"; } ?>
+		echo "<li><a href=".$links[$i-1]."><img src='".get_template_directory_uri()."/img/SMI-$i.png' onmouseover='TSI(this, $i,\"img\");'></a></li>"; } ?>
             </ul>
         </div>
         <div id="header-reservation-lane">
@@ -92,20 +92,20 @@ $datetime = new DateTime(date('Y-m-d'));
     </div>
     </div>
     <div class="clear"></div>
-<div id="headere">
+<div id="header">
     <div class="clear"></div>
-    <div id="header-containere">
-    <div id="header-nave">
+    <div id="header-container">
+    <div id="header-nav">
 	<style> <?php echo '#header-nave a#'.$pagename.'-hn'; ?> { color: #b5121b; } </style>
         <ul>
 	    	<?php foreach ($pages as $page) { $title = get_set_title(get_set_id($page)); ?>
-		<a id="nav-tri-<?php echo $page; ?>" href="<?php echo bloginfo('wpurl').'/'.$page; ?>"><img src="<?php echo get_template_directory_uri(); ?>/MBC/img/lane-arrow.png"></a>
+		<a id="nav-tri-<?php echo $page; ?>" href="<?php echo bloginfo('wpurl').'/'.$page; ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/lane-arrow.png"></a>
 		<li><a class="header-linke" id="<?php echo $page; ?>-hn" href="<?php echo bloginfo('wpurl').'/'.$page; ?>"><?php echo $title; ?></a></li>
 		<?php } ?>
         </ul>
     </div>
     <div id="header-logo">
-        <a href="<?php bloginfo('wpurl'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/MBC/imagene/uploads/<?php echo get_image_name('logo'); ?>"></a>
+        <a href="<?php bloginfo('wpurl'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/imagene/uploads/<?php echo get_image_name('logo'); ?>"></a>
     </div>
     <div id="logistical-information" class="header-banner">
 	<?php execute_set_function(get_set_id('logistical-information')); ?>
@@ -120,7 +120,7 @@ $datetime = new DateTime(date('Y-m-d'));
 <style> #left-tape { width: 53%; height: 37px; } </style>
 <style> #right-tape { width: 37%; height: 37px; } </style>
 <style> #club { width: 10%; height: 37px; } </style>
-<img id="left-tape" src='<?php echo get_template_directory_uri(); ?>/MBC/img/crop_r.png'><img id="club" src='<?php echo get_template_directory_uri(); ?>/MBC/img/crop_c.png'><img id="right-tape" src='<?php echo get_template_directory_uri(); ?>/MBC/img/crop_r.png'>
+<img id="left-tape" src='<?php echo get_template_directory_uri(); ?>/img/crop_r.png'><img id="club" src='<?php echo get_template_directory_uri(); ?>/img/crop_c.png'><img id="right-tape" src='<?php echo get_template_directory_uri(); ?>/img/crop_r.png'>
 </div>
 </div>
 </body>

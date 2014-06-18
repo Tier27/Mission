@@ -1,5 +1,5 @@
 <?php $pages = get_set_children_names(get_set_id('pages')); ?>
-<link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/MBC/css/footer.css">
+<link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/footer.css">
 <div class="clear"></div>
 <div id="footer">
 	<div id="footer-content">

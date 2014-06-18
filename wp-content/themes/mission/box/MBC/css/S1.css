@@ -1,0 +1,55 @@
+/* Sidebar */
+.S1 {
+  position: absolute;
+  display: inline-block;
+  float: right;
+  width: 27.5%;
+  bottom: 0px;
+  right: 0px;
+}
+
+.sidebar-plan-event-menu {
+  position: relative;
+  display: inline-block;
+  float: left;
+  width: 50%;
+  height: 115px;
+  background: #fff;
+  color: #000;
+}
+
+.sidebar-plan-event-menu p {
+  font-family: 'MyriadPro-Regular', serif;
+  text-align: center;
+  line-height: 125%;
+  font-size: 18px;
+  word-spacing: 50px;
+  padding: 15% 0 25% 0;
+}
+
+#sidebar-plan-event-calendar img {
+  margin-top: 8%;
+  width: 100%;
+}
+
+#sidebar-plan-event-links li {
+  list-style-type: none;
+  text-align: center;
+  line-height: 275%;
+  font-family: 'MyriadPro-Regular', serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+#sidebar-plan-event-links li a {
+  color: #FFFFFF;
+}
+
+#sidebar-plan-event-links li a:hover {
+  color: #7f7f7f;
+}
+
+.button {
+  margin-right: 4.5%;
+}

@@ -1,0 +1,213 @@
+/* ==================
+Tier 27
+Copyright 2013
+written for - www.missionbowlingclub.com
+
+swatch colors
+=====================
+#C03737 - Dark Red
+#2e3720 - Dark Green
+#7f7f7f - Light Gray
+#D8D8D8 - Off-White
+===================== */
+
+/* Links and Typography 
+===================== */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  
+  /*background: url('img/mbc-background.png') no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  background: url('img/test2.png');
+  background-repeat: repeat;
+}
+
+a {
+  color: #B5121B;
+}
+
+a:hover {
+  color: #B5121B;
+}
+
+a:link, a:active, a:visited {
+  text-decoration: none;
+}
+
+#calendar-page h2 {
+  margin-bottom: 3%;
+  font-size: 24px;
+  font-weight: normal;
+  color: #B5121B;
+  font-family: 'MyriadPro-Regular', serif;
+}
+
+#calendar-page p {
+  font-family: 'MyriadPro-Regular';
+  font-size: 13px;
+  line-height: 145%;
+  word-spacing: 1px;
+  text-align: justify;
+}
+
+strong {
+  font-weight: bolder;
+}
+
+@font-face {
+font-family: MyriadPro-Regular;
+src: url('MyriadPro-Regular.otf');
+}
+
+@font-face {
+font-family: Copperplate-Gothic-Light;
+src: url('Copperplate-Gothic-Light.ttf');
+}
+
+/* Global Styling 
+====================*/
+
+/* Three Dots */
+span.dots {
+display: inline-block;
+}
+
+span.dots:after {
+  padding-left: 7px;
+  font-size: 10px;
+  vertical-align: middle;
+  content: "⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮⋮";
+}
+
+h2.dots {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Layout
+===================== */
+.container {
+  width: 960px;
+  min-height: 100px;
+  margin: 3% auto;
+  padding: 0 30px;
+  color: #FFFFFF;
+}
+
+.clear {
+  clear: both;
+}
+
+/* Plan an Event Page
+===================== */
+
+/* Page Subheader */
+#page-subheader {
+  min-height: 100px;
+  margin: 1% auto 2% auto;
+}
+
+#calendar {
+  height: 350px;
+  margin: 1% auto 2% auto;
+  border: 1px solid blue;
+}
+
+
+
+/* Accordian */
+
+.accordion {
+    width: 50%;
+    margin: 0 auto;
+    box-shadow:
+        0px 0px 0px 1px rgba(155,155,155,0.3),
+        0px 2px 2px rgba(0,0,0,0.1);
+}
+
+.accordion label {
+    font-family: 'MyriadPro-Regular';
+    padding: 5px 20px;
+    position: relative;
+    display: block;
+    height: 30px;
+    cursor: pointer;
+    color: #B5121B;
+    line-height: 33px;
+    font-size: 16px;
+    /*background: #EFEFEF;*/
+    border: 1px solid #7f7f7f;
+}
+
+.accordion label:hover {
+    background: #FBFBFB;
+    color: #7f7f7f;
+}
+
+.accordion input + label {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.accordion input:checked + label,
+.accordion input:checked + label:hover {
+    background: #fbfbfb;
+    color: #777;
+    box-shadow:
+        0px 0px 0px 1px rgba(155,155,155,0.3),
+        0px 2px 2px rgba(0,0,0,0.1);
+}
+
+.accordion input {
+    display: none;
+}
+
+.accordion .article {
+    /*background: rgb(255, 255, 255);*/
+    overflow: hidden;
+    height: 0px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.accordion .article p {
+  font-family: 'MyriadPro-Regular';
+  word-spacing: 1px;
+  color: #fbfbfb;
+  line-height: 23px;
+  font-size: 13px;
+  padding: 20px;
+}
+
+.accordion input:checked ~ .article {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.accordion input:checked ~ .article.ac-small {
+    height: 145px;
+}
+
+.accordion input:checked ~ .article.ac-medium {
+    height: 195px;
+}
+
+.accordion input:checked ~ .article.ac-large {
+    height: 245px;
+}

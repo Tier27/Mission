@@ -1,4 +1,4 @@
-* ==================
+/* ==================
 Tier 27
 Copyright 2013
 written for - www.butinapi.com
@@ -22,11 +22,6 @@ swatch colors
 
 body {
   
-  /*background: url('img/mbc-background.png') no-repeat center center fixed;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
   background: url('../img/darkestlane.jpg');
   background-repeat: repeat;
 }
