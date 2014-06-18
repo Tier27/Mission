@@ -221,6 +221,7 @@ class rvReservation {
 		$this->clear_lanes( array( 'cancel' => true ) );
 		if( $this->web == 'true' ) foreach( $this->hours as $hour ) for( $i=0; $i< count($this->lanes); $i++ ) $this->date->decrement_web_lane( $hour );
 		$this->date->deregister_reservation( $this->ID );
+		$this->update('status', 'canceled');
 		foreach ( $this->date->reservations as $reservation ) {
 
 			if ( $reservation == $this->ID ) continue;

@@ -13,7 +13,6 @@ class rvProcess {
 		$args['status'] = $_POST['status'];
 		$args['notes'] = $_POST['notes'];
 		$args['paid'] = $_POST['paid'];
-//		$args['Hours'] = array( 20, 21, 22 );
 		$args['date'] = preg_replace( '/([0-9]{2})\/([0-9]{2})\/([0-9]{4})/', '$3-$1-$2', $_POST['date'] );
 		$args['lanes'] = $_POST['lanes'];
 		$args['bowlers'] = $_POST['bowlers'];
