@@ -200,54 +200,9 @@ jQuery( function( $ ) {
 		$('#manage-reservation-hours').val(str);
 
 	});
-/*
-                $('#reportrange').datepicker().change(function() {
-
-			var ajaxdata = {
-				action: 	'print_calendar_contents',
-				date:		$(this).val()
-			};
-		
-			$.post( ajaxurl, ajaxdata, function(res){
-				$('#calendar-target').html(res);
-				$.getScript( subscript )
-			});
-
-                });
-*/
 	$('.dropdown-menu, .dropdown-menu input, .dropdown-menu label').click(function(e) {
 	    e.stopPropagation();
 	});
-/*
-	$('.filled').hover( function() {
-		$(this).toggleClass('opaque');
-	}).click( function() {
-		$('#modal-button').hide().trigger( 'click' );
-		$('#manage-reservation-name').val($(this).find('.name').contents().html());
-		$('#manage-reservation-company').val($(this).find('.company').html());
-		$('#manage-reservation-phone').val($(this).find('.phone').html());
-		$('#manage-reservation-email').val($(this).find('.email').html());
-		$('#manage-reservation-status').val($(this).find('.status').html());
-		$('#manage-reservation-notes').val($(this).find('.notes').html());
-		$('#manage-reservation-id').val($(this).find('.id').html());
-		$('#manage-reservation-paid').val($(this).find('.balance-paid').html());
-		//$('#manage-reservation-bowlers').($(this).find('.bowlers').html());
-		var lanes = $(this).find('.lanes').html();
-		$('#manage-reservation-lanes option[value="' + lanes + '"]').prop('selected', true);
-		var bowlers = $(this).find('.bowlers').html();
-		$('#manage-reservation-bowlers option[value="' + bowlers + '"]').prop('selected', true);
-		var hours = $(this).find('.hours').html();
-		hours = hours.split( ',' );
-		$('#manage-reservation-hours').val( hours );
-		$('.manage-reservation-hours').prop("checked", false).parent().removeClass( 'dropdown-active' );
-		$.each( hours, function( index, value ) {
-			$('.manage-reservation-hours[value="' + value + '"]').prop("checked", true).parent().toggleClass( 'dropdown-active' );
-		});
-		bool = $.inArray( '14', hours.split( ',' ) );
-		$('#dropdownMenu2').html(bool);
-	});
-*/
-
 	$('.update').click( function() {
 
 		var modal = $.modal;
@@ -255,7 +210,7 @@ jQuery( function( $ ) {
 			action:		$('#manage-reservation-action').val(),
 			ID: 		$('#manage-reservation-id').val(),
 			name: 		$('#manage-reservation-name').val(),
-			company: 		$('#manage-reservation-company').val(),
+			company:	$('#manage-reservation-company').val(),
 			phone: 		$('#manage-reservation-phone').val(),
 			email: 		$('#manage-reservation-email').val(),
 			status:		$('#manage-reservation-status').val(),
@@ -268,6 +223,7 @@ jQuery( function( $ ) {
 		};
 		
 		$.post( ajaxurl, ajaxdata, function(res){
+			console.log(res);
 			$('#manage-reservation-result').html("The reservation has been updated.").html(res);
 			var ajaxdata = {
 				action: 	'print_calendar_contents',
@@ -278,7 +234,7 @@ jQuery( function( $ ) {
 			$.post( ajaxurl, ajaxdata, function(res){
 				$('#calendar-target').html(res);
 				$.getScript( subscript )
-			modal.close();
+			//modal.close();
 			});
 		});
 
@@ -300,7 +256,7 @@ jQuery( function( $ ) {
 				$.post( ajaxurl, ajaxdata, function(res){
 					$('#calendar-target').html(res);
 					$.getScript( subscript )
-					modal.close();
+					//modal.close();
 	//			});
 			});
 		});

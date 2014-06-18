@@ -2,12 +2,6 @@
 
 class rvAjax {
 
-	public function speak() {
-
-		rvHTML:: belk( "This is Reservations Ajax." );
-
-	}
-
 	public function print_calendar_contents( $datefield ) {
 		if ( isset( $_POST ) && ! empty( $_POST['date'] ) )
 			$datefield = $_POST['date'];
@@ -20,18 +14,13 @@ class rvAjax {
                     <div class="col-md-2-table" style="opacity: .6;">
                       <h5><strong><?php echo ( $hour % 12 == 0 ) ? '12:00 ' : ( $hour % 12 ) . ':00 '; echo ( ( ( int )( $hour / 12) ) == 1 ) ? 'pm' : 'am'; ?></strong></h5>
                     </div>
-                    <div class="col-md-2-table">
-                    </div>
-                    <div class="col-md-2-table">
-<!--                      <h5>Status: <span class="btn-success open">open</span></h5>-->
-                    </div>
+                    <div class="col-md-2-table"></div>
+                    <div class="col-md-2-table"></div>
                     <div class="col-md-2-table">
                       <h5><?php echo '$' . $price = $date->settings->get_pricing( $date->day, $hour ); ?></h5>
                     </div>
-                    <div class="col-md-2-table">
-                    </div>
-                    <div class="col-md-2-table">
-                    </div>
+                    <div class="col-md-2-table"></div>
+                    <div class="col-md-2-table"></div>
                   </div>
                   <div class="row" style="display: table-row">
                     <?php for ( $i = 1; $i <= $date->settings->lanes; $i++ ) { ?>
@@ -41,29 +30,9 @@ class rvAjax {
 			<?php if ( $date->lanes[$i][$hour] != $prevID ) echo 'style="border-left: solid 1px black;"'; ?>
 			<?php if ( $i == $date->settings->lanes && $reservation != '' ) echo 'style="border-right: solid 1px black;"'; ?>
 			>
-		    <?php if( $reservation != '' ) { ?>
-                        <span class="badge hide"><?php echo $prevID = $date->lanes[$i][$hour]; ?></span>
-                        <span class="id hide"><?php echo $date->lanes[$i][$hour]; ?></span>
-			<span class="price hide"><?php echo $reservation->price; ?></span>
-                        <h5 class="lanes hide"><?php echo count( $reservation->lanes ); ?></h5>
-                        <h5 class="bowlers hide"><?php echo $reservation->bowlers; ?></h5>
-                        <h5 class="hours hide"><?php echo implode( ',', $reservation->hours ); ?></h5>
-                        <h5 class="name"><strong><?php echo $reservation->name; ?></strong></h5>
-                        <h5 class="company"><?php echo $reservation->company; ?></h5>
-                        <h5 class="phone"><?php echo $reservation->phone; ?></h5>
-                        <span class="balanced hide"><?php echo isset( $reservation->paid ) ? 'Due: ' : ''; ?>
-			</span>
-			<span class="badge balance"><?php echo isset( $reservation->paid ) ? '$'.( $reservation->price - (int)substr($reservation->paid,1) ) : ''; ?></span>
-			<span class="balance-paid hide"><?php echo $reservation->paid; ?></span>
-                        <h5 class="email hide"><?php echo $reservation->email; ?></h5>
-                        <h5 class="status hide"><?php echo $reservation->status; ?></h5>
-                        <h6 class="notes"><?php echo $reservation->notes; ?></h6>
-			<?php if ( $reservation != '' ) { ?>
-			<div class="creator">Created by <?php 
-echo ( $reservation->post->post_author == 0 ) ? "a user" : get_user_meta( $reservation->post->post_author, 'first_name', true );  ?>
-			</div>
-			<?php } ?>
-		    <?php } ?>
+		    <?php if( $reservation != '' ) { 
+			rvOutput::print_reservation( $reservation, $date, $i, $hour, 'active' ); 
+		    } ?>
 		    <div class="pending">
 		    <?php 
 		   foreach( $date->pending[$i][$hour] as $ID ) { 
@@ -75,7 +44,7 @@ echo ( $reservation->post->post_author == 0 ) ? "a user" : get_user_meta( $reser
 		    <?php 
 		   foreach( $date->canceled[$i][$hour] as $ID ) { 
 			$reservation = new rvReservation( $ID ); 
-			echo "<div class='canceled-reservation'>$reservation->name</div>";
+			rvOutput::print_reservation( $reservation, $date, $i, $hour, 'canceled', 'canceled-reservation' ); 
 		   } ?>
 		    </div>
                     </div>
@@ -91,7 +60,9 @@ echo ( $reservation->post->post_author == 0 ) ? "a user" : get_user_meta( $reser
 	public function update_reservation( ) {
 
 		$reservation = new rvReservation( $_POST['ID'] );
+		$status = $reservation->status;
 		print_r( $_POST );
+		if( $_POST['status'] == 'canceled' ) $_POST['status'] = 'hold';
 		$hours = explode( ',', $_POST['hours'] );
 		$ID = $_POST['ID'];
 		$lanes = $_POST['lanes'];
@@ -110,8 +81,11 @@ echo ( $reservation->post->post_author == 0 ) ? "a user" : get_user_meta( $reser
 		$reservation->update( 'hours', $hours );
 		$reservation->lanes = $reservation->date->book_lanes_hours( array_slice( $reservation->date->available_lanes( $hours ), 0, $lanes ), $hours, $ID );
 		$reservation->update( 'lanes', $reservation->lanes );
-		$reservations->price = $reservations->set_price();
-		$reservations->update( 'price', $reservations->price );
+		$reservation->price = $reservation->set_price();
+		$reservation->update( 'price', $reservation->price );
+		if( $status == 'canceled' ) :
+			$reservation->date->sanitize_cancelations($reservation->ID);
+		endif;
 		die();
 
 	}

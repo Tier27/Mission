@@ -1,0 +1,451 @@
+/* Homepage
+===================== */
+#homepage {
+	height: 500px;
+}
+
+/* Slider */
+#empty-warehouse{
+    position:relative;
+    background-size: cover;
+    width:730px;
+    height: 493px;
+    background: url('../img/empty-small-blackframe.jpg') no-repeat;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:150px;
+}
+
+#mural{
+	position:relative;
+    width:940px;
+    height: 493px;
+    margin: 0 auto;
+    background: url('../img/mural-only.png') no-repeat;
+    opacity:0;
+}
+
+#lanes{
+	position:relative;
+    background-size: cover;
+    width:940px;
+    height: 493px;
+    background: url('img/lanes-only.png') no-repeat;
+    opacity:0;
+}
+
+.photo-nav-arrow{
+    position: absolute;
+    height: 19px;
+    width: 64px;
+/*    height: 38px;
+    width: 128px;
+*/    
+    top:100px;
+    opacity:0;
+}
+
+#left-arrow{
+    top: 500px;
+    left:100px;
+    background: url('img/left-arrow-clean.png') no-repeat;
+    background-size: contain;
+}
+
+#right-arrow{
+    top: 500px;
+    right:100px;
+    background: url('img/right-arrow-clean.png') no-repeat;
+    background-size: contain;
+}
+
+img.pg-img{
+    position:relative;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    top:-120px;
+}
+
+@keyframes noHeight 
+{ 
+    from {height:0px;} to {height:0px;} 
+}
+@-moz-keyframes noHeight
+{
+    from {height:0px;} to {height:0px;}
+}
+@-webkit-keyframes noHeight
+{
+    from {height:0px;} to {height:0px;}
+}
+@-o-keyframes noHeight
+{
+    from {height:0px;} to {height:0px;}
+}
+
+@keyframes show
+{ 
+    from { opacity:1; } to { opacity:1; }
+}
+@-moz-keyframes show
+{ 
+    from { opacity:1; } to { opacity:1; }
+}
+@-webkit-keyframes show
+{ 
+    from { opacity:1; } to { opacity:1; }
+}
+@-o-keyframes show
+{ 
+    from { opacity:1; } to { opacity:1; }
+}
+
+@keyframes fadeIn
+{ 
+    0% { opacity: 0; } 
+    100% { opacity: 1; }
+}
+@-moz-keyframes fadeIn
+{ 
+    0% { opacity: 0; } 
+    100% { opacity: 1; }
+}
+@-webkit-keyframes fadeIn
+{ 
+    0% { opacity: 0; } 
+    100% { opacity: 1; }
+}
+@-o-keyframes fadeIn
+{ 
+    0% { opacity: 0; } 
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOut
+{ 
+    0% { opacity: 1; }     
+    100% { opacity: 0; }
+}
+@-mozilla-keyframes fadeOut
+{ 
+    0% { opacity: 1; }     
+    100% { opacity: 0; }
+}
+@-webkit-keyframes fadeOut
+{ 
+    0% { opacity: 1; }     
+    100% { opacity: 0; }
+}
+@-o-keyframes fadeOut
+{ 
+    0% { opacity: 1; }     
+    100% { opacity: 0; }
+}
+.fadeInFadeOut{
+    animation-fill-mode:forwards;
+    animation-name: fadeIn, show, fadeOut, noHeight;
+    animation-duration: 1s, 1.5s, 1s, 1s;
+    animation-timing-function: ease-in, step-start, ease-in, step-start;
+    animation-iteration-count: 1; 
+    animation-delay: 1s, 2s, 3.5s, 4.5s;;
+    
+    -moz-animation-fill-mode:forwards;
+    -moz-animation-name: fadeIn, show, fadeOut, noHeight;
+    -moz-animation-duration: 1s, 1.5s, 1s, 1s;
+    -moz-animation-timing-function: ease-in, step-start, ease-in, step-start;
+    -moz-animation-iteration-count: 1; 
+    -moz-animation-delay: 1s, 2s, 3.5s, 4.5s;
+    
+    -webkit-animation-fill-mode:forwards;
+    -webkit-animation-name: fadeIn, show, fadeOut, noHeight;
+    -webkit-animation-duration: 1s, 1.5s, 1s, 1s;
+    -webkit-animation-timing-function: ease-in, step-start, ease-in, step-start;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-delay: 1s, 2s, 3.5s, 4.5s;
+    
+    -o-animation-fill-mode:forwards;
+    -o-animation-name: fadeIn, show, fadeOut, noHeight;
+    -o-animation-duration: 1s, 1.5s, 1s, 1s;
+    -o-animation-timing-function: ease-in, step-start, ease-in, step-start;
+    -o-animation-iteration-count: 1;
+    -o-animation-delay: 1s, 2s, 3.5s, 4.5s;
+
+    opacity:0;
+}
+.beginHide{
+    animation-name: noHeight;
+    animation-duration: 5s;
+    animation-timing-function: step-start;
+    animation-iteration-count: 1; 
+    -moz-animation-name: noHeight;
+    -moz-animation-duration: 5s;
+    -moz-animation-timing-function: step-start;
+    -moz-animation-iteration-count: 1; 
+    -webkit-animation-name: noHeight;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-timing-function: step-start;
+    -webkit-animation-iteration-count: 1; 
+    -o-animation-name: noHeight;
+    -o-animation-duration: 5s;
+    -o-animation-timing-function: step-start;
+    -o-animation-iteration-count: 1;     
+}
+.fadeIn{
+    animation-fill-mode:forwards;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1; 
+    -moz-animation-fill-mode:forwards;
+    -moz-animation-name: fadeIn;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: ease-in;
+    -moz-animation-iteration-count: 1; 
+    -webkit-animation-fill-mode:forwards;
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-iteration-count: 1; 
+    -o-animation-fill-mode:forwards;
+    -o-animation-name: fadeIn;
+    -o-animation-duration: 1s;
+    -o-animation-timing-function: ease-in;
+    -o-animation-iteration-count: 1; 
+}
+.fadeInTwo{
+    animation-delay: 5s;
+    -moz-animation-delay: 5s;
+    -webkit-animation-delay: 5s;
+    -o-animation-delay: 5s;    
+}
+.fadeInThree{
+    animation-delay: 7.5s;
+    -moz-animation-delay: 7.5s;
+    -webkit-animation-delay: 7.5s;
+    -o-animation-delay: 7.5s;    
+    
+}
+
+.hundred-block { height: 100px; }
+.ten-block { height: 10px; }
+
+@font-face {
+font-family: MyriadPro-Regular;
+src: url('fonts/MyriadPro-Regular.otf');
+}
+
+@font-face {
+font-family: Copperplate-Gothic-Light;
+src: url('fonts/Copperplate-Gothic-Light.ttf');
+}
+
+#photo-gallery{
+    position:relative;
+    background-size: cover;
+    width:1250px;
+    height: 756px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 150px;
+    overflow-y: visible;
+}
+
+.photo-nav-arrow{
+    position: absolute;
+    height: 19px;
+    width: 64px;
+/*    height: 38px;
+    width: 128px;
+*/    
+    top:100px;
+    opacity: 0;
+}
+
+
+#left-arrow{
+    left:80px;
+    background: url('left-arrow-clean.png') no-repeat;
+    background-size: contain;
+}
+
+#right-arrow{
+    right:80px;
+    background: url('right-arrow-clean.png') no-repeat;
+    background-size: contain;
+}
+
+
+#lanes{
+    background: url('lanes-only.png') no-repeat;
+    opacity:0;
+}
+
+.pg-element{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+}
+
+.fadeIn{
+    animation-fill-mode:forwards;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1; 
+    -moz-animation-fill-mode:forwards;
+    -moz-animation-name: fadeIn;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: ease-in;
+    -moz-animation-iteration-count: 1; 
+    -webkit-animation-fill-mode:forwards;
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-iteration-count: 1; 
+    -o-animation-fill-mode:forwards;
+    -o-animation-name: fadeIn;
+    -o-animation-duration: 1s;
+    -o-animation-timing-function: ease-in;
+    -o-animation-iteration-count: 1; 
+}
+.fadeInTwo{
+    animation-delay: 5s;
+    -moz-animation-delay: 5s;
+    -webkit-animation-delay: 5s;
+    -o-animation-delay: 5s;    
+}
+.fadeInThree{
+    animation-delay: 7.5s;
+    -moz-animation-delay: 7.5s;
+    -webkit-animation-delay: 7.5s;
+    -o-animation-delay: 7.5s;    
+    
+}
+
+#photo-gallery{
+    position:relative;
+    background-size: cover;
+    width: 100%;
+    height: 756px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 350px;
+    overflow-y: visible;
+}
+.beginHide{
+    animation-name: noHeight;
+    animation-duration: 5s;
+    animation-timing-function: step-start;
+    animation-iteration-count: 1; 
+    -moz-animation-name: noHeight;
+    -moz-animation-duration: 5s;
+    -moz-animation-timing-function: step-start;
+    -moz-animation-iteration-count: 1; 
+    -webkit-animation-name: noHeight;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-timing-function: step-start;
+    -webkit-animation-iteration-count: 1; 
+    -o-animation-name: noHeight;
+    -o-animation-duration: 5s;
+    -o-animation-timing-function: step-start;
+    -o-animation-iteration-count: 1;     
+}
+
+#empty-warehouse{
+    position:relative;
+    background-size: cover;
+    width:730px;
+    height: 493px;
+    background: url('empty-small-blackframe.jpg') no-repeat;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:250px;
+}
+
+
+@keyframes fadeIn
+{ 
+    0% { opacity: 0; } 
+    100% { opacity: 1; }
+}
+@-moz-keyframes fadeIn
+{ 
+    0% { opacity: 0; } 
+    100% { opacity: 1; }
+}
+@-webkit-keyframes fadeIn
+{ 
+    0% { opacity: 0; } 
+    100% { opacity: 1; }
+}
+@-o-keyframes fadeIn
+{ 
+    0% { opacity: 0; } 
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOut
+{ 
+    0% { opacity: 1; }     
+    100% { opacity: 0; }
+}
+@-mozilla-keyframes fadeOut
+{ 
+    0% { opacity: 1; }     
+    100% { opacity: 0; }
+}
+@-webkit-keyframes fadeOut
+{ 
+    0% { opacity: 1; }     
+    100% { opacity: 0; }
+}
+@-o-keyframes fadeOut
+{ 
+    0% { opacity: 1; }     
+    100% { opacity: 0; }
+}
+.fadeInFadeOut{
+    animation-fill-mode:forwards;
+    animation-name: fadeIn, show, fadeOut, noHeight;
+    animation-duration: 1s, 1.5s, 1s, 1s;
+    animation-timing-function: ease-in, step-start, ease-in, step-start;
+    animation-iteration-count: 1; 
+    animation-delay: 1s, 2s, 3.5s, 4.5s;;
+    
+    -moz-animation-fill-mode:forwards;
+    -moz-animation-name: fadeIn, show, fadeOut, noHeight;
+    -moz-animation-duration: 1s, 1.5s, 1s, 1s;
+    -moz-animation-timing-function: ease-in, step-start, ease-in, step-start;
+    -moz-animation-iteration-count: 1; 
+    -moz-animation-delay: 1s, 2s, 3.5s, 4.5s;
+    
+    -webkit-animation-fill-mode:forwards;
+    -webkit-animation-name: fadeIn, show, fadeOut, noHeight;
+    -webkit-animation-duration: 1s, 1.5s, 1s, 1s;
+    -webkit-animation-timing-function: ease-in, step-start, ease-in, step-start;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-delay: 1s, 2s, 3.5s, 4.5s;
+    
+    -o-animation-fill-mode:forwards;
+    -o-animation-name: fadeIn, show, fadeOut, noHeight;
+    -o-animation-duration: 1s, 1.5s, 1s, 1s;
+    -o-animation-timing-function: ease-in, step-start, ease-in, step-start;
+    -o-animation-iteration-count: 1;
+    -o-animation-delay: 1s, 2s, 3.5s, 4.5s;
+    opacity:0;
+}
+
+
+.stripe-line { 
+  display: inline-block; 
+  background: url("../img/mbc-logo-stripes-s.png"); 
+  font-size: 20px; 
+  background-repeat: repeat-x; 
+  width: 100%; 
+  margin-left: 10px;
+  vertical-align: middle;
+  margin-top: 17px;
+}

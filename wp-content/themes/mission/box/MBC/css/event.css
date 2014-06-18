@@ -1,0 +1,292 @@
+/* ==================
+Tier 27
+Copyright 2013
+written for - www.missionbowlingclub.com
+
+swatch colors
+=====================
+#b5121b - Dark Red
+#2e3720 - Dark Green
+#7f7f7f - Light Gray
+#D8D8D8 - Off-White
+===================== */
+
+/* Links and Typography 
+===================== */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  color: #b5121b;
+}
+
+a:hover {
+  color: #b5121b;
+}
+
+a:link, a:active, a:visited {
+  text-decoration: none;
+}
+
+#plan-event h2 {
+  margin-bottom: 3%;
+  font-size: 22px;
+  font-weight: normal;
+  color: #b5121b;
+  font-family: 'Copperplate-Gothic-Light';
+}
+
+strong {
+  font-weight: normal;
+}
+
+/* Global Styling 
+====================*/
+
+/* Contact Button */
+.button{
+ position: relative;
+ float: right; 
+ margin-bottom: 26px;
+ border:1px solid #222; -webkit-border-radius: 5px; -moz-border-radius: 5px;border-radius: 5px;font-size:12px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3); color: #FFFFFF;
+ background-color: #7d7e7d; background-image: -webkit-gradient(linear, left top, left bottom, from(#7d7e7d), to(#0e0e0e));
+ background-image: -webkit-linear-gradient(top, #7d7e7d, #0e0e0e);
+ background-image: -moz-linear-gradient(top, #7d7e7d, #0e0e0e);
+ background-image: -ms-linear-gradient(top, #7d7e7d, #0e0e0e);
+ background-image: -o-linear-gradient(top, #7d7e7d, #0e0e0e);
+ background-image: linear-gradient(to bottom, #7d7e7d, #0e0e0e);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#7d7e7d, endColorstr=#0e0e0e);
+}
+
+.button:hover{
+ border:1px solid #111;
+ background-color: #646464; background-image: -webkit-gradient(linear, left top, left bottom, from(#646464), to(#282828));
+ background-image: -webkit-linear-gradient(top, #646464, #282828);
+ background-image: -moz-linear-gradient(top, #646464, #282828);
+ background-image: -ms-linear-gradient(top, #646464, #282828);
+ background-image: -o-linear-gradient(top, #646464, #282828);
+ background-image: linear-gradient(to bottom, #646464, #282828);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#646464, endColorstr=#282828);
+}
+
+a.button {
+  color: #FFFFFF;
+}
+
+/* Three Dots */
+span.dots {
+display: inline-block;
+}
+
+h2.dots {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.stripe-line { 
+  display: inline-block; 
+  background: url("../img/mbc-logo-stripes-s.png"); 
+  font-size: 20px; 
+  background-repeat: repeat-x; 
+  width: 100%; 
+  margin-left: 10px;
+  margin-bottom: 6px;
+}
+
+.stripe-line:after { content: '\00A0'; }
+
+/* Layout
+===================== */
+.container {
+  width: 960px;
+  min-height: 100px;
+  margin: 3% auto;
+  padding: 0 30px;
+  color: #FFFFFF;
+}
+
+.clear {
+  clear: both;
+}
+
+/* Plan an Event Page
+===================== */
+
+/* Page Subheader */
+#page-subheader {
+  min-height: 350px;
+  margin: 1% auto 2% auto;
+}
+
+.event-subheader-image, .event-subheader-title {
+  position: relative;
+  display: inline-block;
+  float: left;
+  width: 27%;
+}
+
+.event-subheader-image {
+  border: 2px solid #b5121b;
+  margin-right: 6%;
+}
+
+.event-subheader-image:last-child {
+  margin-right: 0%;
+}
+
+.event-subheader-title {
+  min-height: 10px;
+  margin: 1% 6.5% 0 0;
+}
+
+.event-subheader-title p {
+  font-family: 'Copperplate-Gothic-Light';
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.event-subheader-image img {
+  width: 100%;
+  display: block;
+}
+
+.event-subheader-image:nth-child(4) {
+  margin-right: 0px;
+}
+
+/* Plan an Event Alpha */
+#plan-event-alpha {
+  width: 66%;
+  width: 100%;
+  margin-bottom: 2%;
+}
+
+#plan-event-alpha p {
+  font-family: 'MyriadPro-Regular';
+  font-size: 14px;
+  line-height: 145%;
+  word-spacing: 1px;
+  text-align: justify;
+}
+
+/* Contact Form */
+#plan-event-contact {
+  position: relative;
+  display: inline-block;
+  width: 66%;
+  width: 100%;
+  margin-bottom: 2%;
+  margin: 2% 0;
+  
+  /*background-color: #222222;*/
+}
+
+#plan-event-contact h1 {
+  margin-bottom: 3.5%;
+  font-size: 30px;
+  font-weight: normal;
+  color: #D8D8D8;
+  font-family: 'MyriadPro-Regular', serif;
+}
+
+.plan-event-contact-title p, .plan-event-contact-input input {
+  margin-bottom: 2.5%;
+}
+
+input:focus {
+  outline: none !important;
+}
+
+.plan-event-contact-title p {
+  width: 30%;
+  position: relative;
+  display: inline-block;
+  float: left;
+  color: #D8D8D8;
+  font-family: 'MyriadPro-Regular';
+}
+
+/* Contact Form */
+.plan-event-contact-input input {
+  position: relative;
+  display: inline-block;
+  float: left;
+  background: none;
+  color: #D8D8D8;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid #7f7f7f;
+  width: 40%;
+  font-size: 13px; 
+}
+
+.plan-event-contact-input input.box {
+  border: 1px solid #7f7f7f;
+  width: 65%;
+  height: 75px;
+}
+
+p#describe-event {
+  float: left;
+  color: #7f7f7f;
+  font-style: italic;
+  font-size: 12px;
+  margin: -1% 0 3% 0;
+}
+
+/* Sidebar */
+.sidebar {
+  position: relative;
+  display: inline-block;
+  float: right;
+  width: 27.5%;
+}
+
+#sidebar-plan-event-menu {
+  position: relative;
+  display: inline-block;
+  float: left;
+  width: 40%;
+  height: 115px;
+  background: #fff;
+  color: #000;
+}
+
+#sidebar-plan-event-menu p {
+  font-family: 'MyriadPro-Regular', serif;
+  text-align: center;
+  line-height: 125%;
+  font-size: 18px;
+  word-spacing: 50px;
+  padding: 15% 0 25% 0;
+}
+
+#sidebar-plan-event-calendar img {
+  margin-top: 8%;
+  width: 100%;
+}
+
+#sidebar-plan-event-links li {
+  list-style-type: none;
+  text-align: center;
+  line-height: 275%;
+  font-family: 'MyriadPro-Regular', serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+#sidebar-plan-event-links li a {
+  color: #FFFFFF;
+}
+
+#sidebar-plan-event-links li a:hover {
+  color: #7f7f7f;
+}
+
+.button {
+  margin-right: 4.5%;
+}

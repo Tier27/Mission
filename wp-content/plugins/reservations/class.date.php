@@ -204,6 +204,28 @@ class rvDate {
 
 	}
 
+	public function set_lanes( $args = array() ) {
+		echo 'here';
+		if( $args['type'] == 'canceled' ) :
+
+			foreach( $this->canceled as $lane => $hours ) :
+
+				foreach( $hours as $hour => $reservations ) :
+
+					foreach( $reservations as $reservation ) :
+
+						//update_post_meta('canceled_lane_' . $lane . '_' . $hour, $reservation); 
+
+					endforeach;
+
+				endforeach;
+
+			endforeach;
+
+		endif;	
+
+	}
+
 	//Occupancy
 
 	public function swap_lane_hours( $i, $ihour, $j, $jhour ) {
@@ -424,6 +446,14 @@ class rvDate {
 
 		$this->weblanes[$hour]-=1;
 		$this->set_web_lanes( $this->weblanes );
+
+	}
+
+	public function sanitize_cancelations( $ID ) {
+
+		global $wpdb;
+		$wpdb->query("DELETE FROM wp_postmeta WHERE meta_key LIKE 'canceled_lane%' AND meta_value='$ID'");
+		return true;
 
 	}
 

@@ -1,0 +1,368 @@
+/* ==================
+Tier 27
+Copyright 2013
+written for - www.butinapi.com
+
+swatch colors
+=====================
+#b5121b - Dark Red
+#2e3720 - Dark Green
+===================== */
+
+/* Links and Typography 
+===================== */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+#homepage {
+  color: #D8D8D8;
+}
+
+body {
+  
+  /*background: url('img/mbc-background.png') no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  background: url('../img/darkestlane.jpg');
+  background: url('../img/dark_Tire.png');
+  background-repeat: repeat;
+}
+
+a:link, a:active, a:visited {
+  text-decoration: none;
+}
+
+strong {
+  font-weight: bolder;
+}
+
+@font-face {
+font-family: MyriadPro-Regular;
+src: url('MyriadPro-Regular.otf');
+}
+
+@font-face {
+font-family: Copperplate-Gothic-Light;
+src: url('fonts/Copperplate-Gothic-Light.ttf');
+}
+
+/* Global Styling 
+====================*/
+
+/* Layout
+===================== */
+.container {
+  width: 960px;
+  margin: 3% auto;
+  padding: 0 30px;
+  color: #FFFFFF;
+}
+
+.clear {
+  clear: both;
+}
+
+/* Header 
+=====================*/
+
+/* Header Reservation Area */
+#header-containere {
+  width: 960px;
+  margin: 0 auto 0 auto;
+}
+
+#headere {
+  font-family: 'Copperplate-Gothic-Light';
+  float:left;
+  min-width:100%;
+  color: #ffffff;
+}
+
+#header-reservation {
+  padding: 0 30px;
+  position: relative;
+  min-width: 960px;
+  height: 45px;
+  background-color: #b5121b;
+}
+
+#header-reservation-contents {
+  position: relative;
+  height: 40px;
+  width: 960px;
+  margin: 0 auto;
+}
+
+#social-media, #header-reservation-lane, #header-reservation-table, #header-reservation p {
+  position: relative;
+  display: inline-block;
+  float: left;
+}
+
+#social-media {
+  position: relative;
+  display: inline-block;
+  float: left;
+  min-width: 10%;
+  margin: 8px 15px 0 0;
+}
+
+#social-media li {
+  display: inline-block;
+}
+
+#social-media img {
+  width: 85%;
+}
+
+li.facebook a:hover, li.twitter a:hover, li.rss a:hover {
+  opacity: .8;
+}
+
+#header-reservation p {
+  /*font: bold 12px 'Arial', helvetica, times;*/
+  font-size: 18px;
+  font-family: 'MyriadPro-Regular';
+  line-height: 30px;
+  color: #000000;
+}
+
+#header-reservation-lane {
+  margin: .75%;
+  /*margin: 10px 15px 10px 5px;*/
+  width: 40%;
+}
+
+#header-reservation-table {
+  margin: .75%;
+  width: 38%;
+  float: right;
+}
+
+select.reserve-lane-openings, select.reserve-lane-openings-number, select.reserve-table-openings, select.reserve-table-openings-time {
+  margin: 0 5px;
+}
+
+/* Dropdown Boxes */
+p.groups-box-title {
+  margin-top: 15px !important;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.select-box-alpha, .select-box-beta, .select-box-alpha-lanes {
+  position: relative;
+  display: inline-block;
+  float: left;
+  margin: 0 5px;
+  height: 25px;
+  overflow: hidden;
+  background: url('../img/mbc-dropdown.png') no-repeat right #FFF;
+  border: 1px solid #606060;
+  line-height: 25px;
+}
+
+.select-box-alpha {
+  width: 42%;
+}
+
+.select-box-alpha-lanes {
+  width: 13%;
+}
+
+.select-box-beta {
+  width: 24%;
+}
+
+.select-box-alpha select, .select-box-beta select, .select-box-alpha-lanes select {
+  background: transparent;
+  width: 120%;
+  overflow: hidden;
+  height: 100%;
+  font-size: 10px;
+  color: #606060;
+  text-indent: 3px;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+/* Go Button */
+input#gobutton {
+  position: relative;
+  display: inline-block;
+  float: right;
+  font-family: 'MyriadPro-Regular';
+  letter-spacing: 1px;
+  margin: 0px 0 0 5px;
+  cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+  padding:6px 9px 5px 6px; /*add some padding to the inside of the button*/
+  background:#595959; /*the color of the button*/
+  border:1px solid #333333; /*required or the default border for the browser will appear*/
+  /*give the button curved corners, alter the size as required*/
+  /*give the button a drop shadow*/
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+  box-shadow: 0 0 4px rgba(0,0,0, .75);
+  /*style the text*/
+  color:#f3f3f3;
+  font-size: 13px;
+  transition: .75s;
+}
+
+/* Header Bottom */
+#header-nave, #header-logo, .header-banner {
+  float: left;
+  margin-top: 20px;
+}
+
+/*Header Bottom Nav */
+#header-nave {
+  width: 25%;
+  list-style: none;
+}
+
+#header-nave li {
+  padding-left: 25px;
+  line-height: 160%;
+  list-style-type: none;
+
+  background-repeat: no-repeat;
+  background-position: 0 .35em;
+}
+
+a#nav-tri-dinner, a#nav-tri-event, a#nav-tri-drinks, a#nav-tri-calendar, a#nav-tri-brunch, a#nav-tri-bowling, a#nav-tri-about {
+  display: inline-block;
+  float: left;
+  margin-top: 5px;
+  padding-right: 15px;
+}
+
+a#nav-tri-dinner, a#nav-tri-event {
+  padding-left: 30px;
+}
+
+a#nav-tri-drinks, a#nav-tri-calendar {
+  padding-left: 60px;
+  margin-right: 10px;
+}
+
+a#nav-tri-brunch {
+  padding-left: 90px;
+  margin-right: 10px;
+}
+
+#header-nave li span a {
+  color: #D8D8D8;
+}
+
+#header-nave li.indent-1 {
+  margin-left: 30px; 
+}
+
+#header-nave li.indent-2 {
+  margin-left: 60px; 
+}
+
+#header-nave li.indent-3 {
+  margin-left: 90px; 
+}
+
+#header-nave a {
+  color: #D8D8D8;
+  font-size: 1.1em;
+  text-transform: capitalize;
+  transition: .5s;
+}
+
+#header-nave a.header-link:hover {
+  transition: .5s;
+  margin-left: 7px;
+  color: #b5121b
+}
+
+/*Header Bottom Logo */
+#header-logo {
+  width: 47.5%;
+}
+
+#header-logo img {
+  width: 100%;
+}
+
+/*Header Bottom Banner */
+.header-banner {
+  width: 27%;
+  color: #D8D8D8;
+}
+
+#logistical-information {
+  padding-top: 2px;
+  text-align: right;
+}
+
+#logistical-information p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+#hours {
+  margin-top: 50px;
+  text-align: right;
+}
+
+#hours p:nth-child(1) {
+  color: #b5121b;
+}
+
+#hours p {  
+  font-size: 13px;     
+  line-height: 1.5;     
+}
+
+#header-address-hours span {
+  font-size: 10px;
+}
+
+#header-stripe-left {
+  position: relative;
+  display: inline-block;
+  float: left;
+  padding-bottom: -20px !important;
+  border: 1px solid;
+  width: 200px;
+}
+
+ul.gallery, ul.slideshow {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.gallery li, ul.slideshow li {
+  margin-right: 10px;
+  padding: 0 0 1em 0;
+}
+ul.gallery li {
+  float: left;
+}
+ul.gallery img, ul.slideshow img  {
+  border-radius: .5em;
+  border: 1px solid #555;
+}
+.deletable {
+	border: solid 2px red !important;
+}
+
+.editable:hover {
+	opacity: .6;
+	font-weight: bold;
+}
+.dining-inline {
+	float: right;
+}

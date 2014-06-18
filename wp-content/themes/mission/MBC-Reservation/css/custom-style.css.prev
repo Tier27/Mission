@@ -1,0 +1,103 @@
+/* ==================
+Tier 27
+written for - Tier 27
+
+swatch colors
+=====================
+#3D4857 - blue
+#282c33 - dark blue (active link)
+#DE1B1B - red
+#8F9BAB - baby blue
+#f1eee5 - cream
+#B5B3AE - gray
+#AA273D - maroon
+===================== */
+/*----------------------------
+	CSS3 Resets 
+-----------------------------*/
+* {
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+	background: black; /*url('../img/darkest-lane.jpg');*/
+}
+.sidebar {
+	background: #fff;
+	border-radius: 5px;
+}
+.sidebar h4 {
+	color: #111;
+}
+.inline {
+	display: inline-block;
+	margin-right: 1em;
+}
+.well {
+	background:  !important;
+}
+/*----------------------------
+	Form 
+-----------------------------*/
+.row input {
+	margin-bottom: 1em !important;
+}
+/*----------------------------
+	Calendar 
+-----------------------------*/
+.calendar a {
+	color: #5D7AC3;
+}
+.calendar a:hover {
+	color: #294487;
+}
+.calendar span.badge {
+	position: absolute;
+	bottom: 3px;
+	right: 3px;
+}
+.calendar span.paid {
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	font-size: .9em;
+	color: #c9302c;
+}
+.calendar h5.name {
+	line-height: 0;
+}
+.calendar h6.notes {
+	margin-bottom: 0;
+}
+.calendar p.dimension {
+	line-height: 10px;
+}
+.cal-heading {
+	margin-top: 5px;
+	background: #ccc;
+}
+.cal-heading h5 {
+	display: inline-block;
+	margin-right: 1em;
+}
+.event {
+	border: 1px solid #ccc;
+	padding: 10px 0;
+}
+.filled {
+	background: #eba5a3;
+}
+span.open, span.closed {
+	border-radius: 3px;
+	padding: 2px;
+	font-size: .9em;
+}
+span.closed {
+	font-size: .7em;
+}
+.active {
+
+	font-weight: bold;
+
+}

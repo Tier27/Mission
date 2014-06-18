@@ -1,0 +1,10 @@
+[11-Nov-2013 14:55:25 UTC] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in /home/tiercom/public_html/development/MBC/imagene/mysql.php on line 6
+[11-Nov-2013 15:00:21 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/tiercom/public_html/development/MBC/bowling.php on line 87
+[11-Nov-2013 15:00:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/tiercom/public_html/development/MBC/bowling.php on line 87
+[11-Nov-2013 15:00:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/tiercom/public_html/development/MBC/bowling.php on line 87
+[11-Nov-2013 15:01:02 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/tiercom/public_html/development/MBC/bowling.php on line 87
+[11-Nov-2013 15:01:18 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/tiercom/public_html/development/MBC/bowling.php on line 87
+[11-Nov-2013 15:01:34 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/tiercom/public_html/development/MBC/bowling.php on line 87
+[11-Nov-2013 15:02:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/tiercom/public_html/development/MBC/bowling.php on line 87
+[11-Nov-2013 15:03:58 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/tiercom/public_html/development/MBC/bowling.php on line 87
+[11-Nov-2013 15:04:40 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/tiercom/public_html/development/MBC/bowling.php on line 87

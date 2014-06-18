@@ -1,0 +1,16 @@
+/*
+Theme Name: Mission Bowling 
+Author: Tier 27
+Author URI: http://www.tier27.com
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: mission
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+#header-reservation-lane p, #header-reservation-table p {
+	font-weight: bold;
+}
