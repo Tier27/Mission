@@ -84,7 +84,7 @@ jQuery( function( $ ) {
 		if( this_submission - last_submission < 10000 ) return;
 		last_submission = this_submission;
 		action	=	$('#book-reservation-action').val();
-		name	= 	$('#book-reservation-name').val();
+		name	= 	$('#book-reservation-first-name').val() + ' ' + $('#book-reservation-last-name').val();
 		company	= 	$('#book-reservation-company').val();
 		phone	= 	$('#book-reservation-phone').val();
 		email	= 	$('#book-reservation-email').val();
@@ -93,6 +93,7 @@ jQuery( function( $ ) {
 		lanes	= 	$('#book-reservation-lanes').val();
 		bowlers	= 	$('#book-reservation-bowlers option:selected').val();
 		hours	= 	$('#book-reservation-hours').val();
+
 
 		error_field = $('#book-reservation-required-message');
 		if ( name == '' ) { error_field.show().html('A name is required'); return; }
@@ -110,7 +111,7 @@ jQuery( function( $ ) {
 
 		var ajaxdata = {
 			action:		$('#book-reservation-action').val(),
-			name: 		$('#book-reservation-name').val(),
+			name:	 	$('#book-reservation-first-name').val() + ' ' + $('#book-reservation-last-name').val(),
 			company: 	$('#book-reservation-company').val(),
 			phone: 		$('#book-reservation-phone').val(),
 			email: 		$('#book-reservation-email').val(),
@@ -119,19 +120,22 @@ jQuery( function( $ ) {
 			lanes: 		$('#book-reservation-lanes').val(),
 			bowlers: 	$('#book-reservation-bowlers option:selected').val(),
 			hours: 		$('#book-reservation-hours').val(),
-			web:		true
+			web:		true,
+			status:		'hold'
 		};
+		global_data.ajaxdata = ajaxdata;
 		$.post( ajaxurl, ajaxdata, function(res){
+			$('input[name="ID"]').val(res).closest('form').submit();
+			
+			/*
 			$('#book-reservation-result').html("The reservation has been updated.").html(res);
-			var name = $('#book-reservation-name').val().split(' ');
 			$('#book-reservation-close').trigger('click');
 			$('#payment-button').trigger('click');
-			$('#payment-first-name').val(name[0]);	
-			$('#payment-last-name').val(name[1]);	
 			$('#payment-company').val($('#book-reservation-company').val());	
 			$('#payment-phone').val($('#book-reservation-phone').val());	
 			$('#payment-email').val($('#book-reservation-email').val());	
 			$('#payment-price').val($('#book-reservation-price').val());	
+			*/
 			//$('#RID').val(res);
 			//$('#anf').trigger('click');
 		});

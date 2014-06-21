@@ -83,14 +83,10 @@ class rvReservation {
 
 		$this->web 	= $args['web'];
 
-		//print_r( $args );
-		//return;
-
 		$postargs = array();
 		$postargs['post_name'] = str_replace( ' ', '-', $args['name'] ) . '-' . $args['date'];
 		rvHTML::maybe( $postargs['post_name'] );
 		$this->post = rvWordPress::get_post_by_slug( $postargs['post_name'] ); 
-		//print_r( $this->post );
 
 		if ( empty( $this->post ) ) {
 
@@ -201,6 +197,20 @@ class rvReservation {
 
 	}
 
+	public function almost_delete( ) {
+
+		$this->clear_lanes();
+		$this->date->deregister_reservation( $this->ID );
+		foreach ( $this->date->reservations as $reservation ) {
+
+			if ( $reservation == $this->ID ) continue;
+			$res = new rvReservation( $reservation );
+			$res->rebook_lanes();
+
+		}
+
+	}
+
 	public function delete( ) {
 
 		$this->clear_lanes();
@@ -212,9 +222,17 @@ class rvReservation {
 			$res->rebook_lanes();
 
 		}
+		$this->delete_post_meta();
 		wp_delete_post( $this->ID );
 
 	}	
+
+	public function delete_post_meta() {
+
+		global $wpdb;
+		$wpdb->query("DELETE FROM wp_postmeta WHERE meta_value=$this->ID");
+	
+	}
 
 	public function cancel() {
 
@@ -231,6 +249,23 @@ class rvReservation {
 		}
 
 	}
+
+	public function set_pending() {
+
+		$this->clear_lanes( array( 'pending' => true ) );
+		if( $this->web == 'true' ) foreach( $this->hours as $hour ) for( $i=0; $i< count($this->lanes); $i++ ) $this->date->decrement_web_lane( $hour );
+		$this->date->deregister_reservation( $this->ID );
+		$this->update('status', 'pending');
+		foreach ( $this->date->reservations as $reservation ) {
+
+			if ( $reservation == $this->ID ) continue;
+			$res = new rvReservation( $reservation );
+			$res->rebook_lanes();
+
+		}
+
+	}
+
 
 	public function clear_lanes( $args = array() ) {
 
@@ -266,6 +301,13 @@ class rvReservation {
 		print_r( $this->lanes );
 		$this->update( 'lanes', $this->lanes );
 
+	}
+	
+	public function list_keys() {
+
+		foreach( $this as $key => $value ) $array[] = $key;
+		print_r( $array );
+	
 	}
 
 }

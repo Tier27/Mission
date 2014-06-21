@@ -18,6 +18,7 @@ class rvDate {
 
 	public function __construct( $date = NULL ) {
 		
+		$date = preg_replace( '/([0-9]{2})\/([0-9]{2})\/([0-9]{4})/', '$3-$1-$2', $date );
 		$this->date = ( $date != NULL ) ? $date : date( 'Y' ) . '-' . date( 'm' ) . '-' . date( 'd' );
 		$this->day = date( 'N', strtotime( $this->date ) );		
 		$this->category = self::get_date_category();	
@@ -80,7 +81,6 @@ class rvDate {
 
 	public function deregister_reservation( $id ) {
 		
-		rvHTML::belk( $id );
 		if ( in_array( $id, $this->reservations ) ) unset($this->reservation[array_search($id,$this->reservation)]);
 		if ( in_array( $id, $this->reservations ) ) return delete_post_meta( $this->ID, 'reservations', $id );
 		return false;
@@ -128,9 +128,11 @@ class rvDate {
 	public function clear_lane_hour( $i, $hour, $args ) {
 
 		$reservation = $this->get_lane_hour( $i, $hour );
+		if( !$reservation ) return;
 
-//Revisoin...
+//Revision...
 		if( $args['cancel'] ) add_post_meta( $this->ID, 'canceled_lane_' . $i . '_' . $hour, $reservation );
+		if( $args['pending'] ) add_post_meta( $this->ID, 'pending_lane_' . $i . '_' . $hour, $reservation );
 		delete_post_meta( $this->ID, 'lane_' . $i . '_' . $hour );
 		$reservation = $this->get_lane_hour( $i, $hour );
 //Revision...
@@ -371,6 +373,7 @@ class rvDate {
 
 		rvHTML::maybe("Lanes in book_lanes:hours: ");
 		//To verify that this is possible
+		//print_r( self::available_lanes( $hours ) );
 		foreach( $lanes as $i ) {
 
 			if ( ! in_array( $i, self::available_lanes( $hours ) ) ) return FALSE;
@@ -396,7 +399,6 @@ class rvDate {
 		delete_post_meta( $this->ID, 'reservations' );
 
 		self::register_reservations( $this->reservations );
-
 
 	}
 
@@ -453,6 +455,14 @@ class rvDate {
 
 		global $wpdb;
 		$wpdb->query("DELETE FROM wp_postmeta WHERE meta_key LIKE 'canceled_lane%' AND meta_value='$ID'");
+		return true;
+
+	}
+
+	public function sanitize_pending_reservations( $ID ) {
+
+		global $wpdb;
+		$wpdb->query("DELETE FROM wp_postmeta WHERE meta_key LIKE 'pending_lane%' AND meta_value='$ID'");
 		return true;
 
 	}

@@ -141,8 +141,9 @@ jQuery(function($) {
                 };
 
                 $.post( ajaxurl, ajaxdata, function(res){
+			console.log(res);
 			$('#response-text').html(res);
-			$('#submit-contact').unbind('click');
+			//$('#submit-contact').unbind('click');
 		});
 
 	});

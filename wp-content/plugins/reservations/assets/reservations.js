@@ -1,3 +1,4 @@
+var global_data = {};
 jQuery( function( $ ) {
 
 	$('#action').val( 'add_reservation' );
@@ -246,7 +247,6 @@ jQuery( function( $ ) {
 			id:		$('#manage-reservation-id').val()
 		};
 		$.post( ajaxurl, ajaxdata, function(res) {
-	//		$.post( ajaxurl, ajaxdata, function(res){
 				$('#manage-reservation-result').html("The reservation has been updated.").html(res);
 				var ajaxdata = {
 					action: 	'print_calendar_contents',
@@ -257,10 +257,31 @@ jQuery( function( $ ) {
 					$('#calendar-target').html(res);
 					$.getScript( subscript )
 					//modal.close();
-	//			});
 			});
 		});
 	});
+
+
+	$('#pend-reservation').unbind("click").click( function() {
+		var ajaxdata = {
+			action:		'pend_reservation',
+			id:		$('#manage-reservation-id').val()
+		};
+		$.post( ajaxurl, ajaxdata, function(res) {
+				$('#manage-reservation-result').html("The reservation has been updated.").html(res);
+				var ajaxdata = {
+					action: 	'print_calendar_contents',
+					date:		$('#date').val()	
+				};
+
+				$.post( ajaxurl, ajaxdata, function(res){
+					$('#calendar-target').html(res);
+					$.getScript( subscript )
+					//modal.close();
+			});
+		});
+	});
+
 	$('#delete-reservation').click( function() {
 		var ajaxdata = {
 			action:		'delete_reservation',
@@ -458,8 +479,8 @@ jQuery( function( $ ) {
 
 	$('#all-toggle').click(function() {
 		$('.canceled, .pending').toggleClass('hide');
-		if( $(this).html() = 'View All' ) $(this).html( 'Hide All' );
-		if( $(this).html() = 'Hide All' ) $(this).html( 'View All' );
+		if( $(this).html() = 'Show All' ) $(this).html( 'Hide All' );
+		if( $(this).html() = 'Hide All' ) $(this).html( 'Show All' );
 	});
 
 	$('.canceled-reservation').hover( function(e) {

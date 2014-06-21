@@ -76,7 +76,7 @@
                 <label class="control-label" for="reservationtime">Reservation Date:</label>
                 <div class="controls">
                   <div class="input-prepend">
-                    <input type="text" style="width: 300px" name="date" id="date" value="<?php echo date('m/d/Y'); ?>"  class="span4"/>
+                    <input type="text" style="" name="date" id="date" value="<?php echo date('m/d/Y'); ?>"  class="span4"/>
                   </div>
                 </div>
               </div>
@@ -166,7 +166,7 @@
                     <input type="text" class="form-control hide" id="status" value="hold" placeholder="Status">
                   </div>
                 </div>
-                <div class="btn-group" style="margin-bottom: 1em;">
+                <div class="btn-group" style="margin-bottom: 1em; width 100%;">
                   <button type="button" data-value="paid" class="btn status btn-success">Paid</button>
                   <button type="button" data-value="reserve" class="btn status btn-warning">Reserve</button>
                   <button type="button" data-value="hold" class="btn status btn-danger">Hold</button>
@@ -220,6 +220,7 @@
               </div>
             </div>
 
+	<?php get_template_part( 'part-reservation-closeup' ); ?>
       </div>
     </div>
   </div>          
@@ -291,14 +292,16 @@
 		    <span class="caret"></span>
 		  </button>
 		<div class="btn-group" id="manage-reservation-hours-buttons">
-		  <?php foreach ( $date->hours as $hour ) { if ( $date->check_hour( $hour ) ) { ?>
-		  <button type="button" class="btn manage-reservation-hours" id="manage-reservation-button-<?php echo $hour; ?>"><span class="count'#date' hide"><?php echo $date->count_hour( $hour ); ?></span><?php echo rvFormat::short_military_hour( $hour ); ?><input type="checkbox" name="hour" class="hours hide" data-price="<?php echo $date->settings->get_pricing( $date->day, $hour ); ?>" value="<?php echo $hour; ?>"></button>
-		  <?php } } ?>
+		  <?php foreach ( $date->hours as $hour ) { 
+		  $hide = ( $date->check_hour( $hour ) ) ? '' : 'hide'; ?>
+		  <button type="button" class="btn manage-reservation-hours <?php echo $hide; ?>" id="manage-reservation-button-<?php echo $hour; ?>"><span class="count'#date' hide"><?php echo $date->count_hour( $hour ); ?></span><?php echo rvFormat::short_military_hour( $hour ); ?><input type="checkbox" name="hour" class="hours hide" data-price="<?php echo $date->settings->get_pricing( $date->day, $hour ); ?>" value="<?php echo $hour; ?>"></button>
+		  <?php } ?>
 		</div>
 		  <ul class="dropdown-menu hide" role="menu" id="manage-reservation-hours-menu" aria-labelledby="dropdownMenu1">
-		  <?php foreach ( $date->hours as $hour ) { if ( $date->check_hour( $hour ) ) { ?>
+		  <?php foreach ( $date->hours as $hour ) { 
+		  $hide = ( $date->check_hour( $hour ) ) ? '' : 'hide'; ?>
 		  <li><a id="manage-reservation-anchor-<?php echo $hour; ?>"><span class="count hide"><?php echo $date->count_hour( $hour ); ?></span><?php echo rvFormat::military_hour( $hour ); ?><input type="checkbox" name="hour" class="manage-reservation-hours hide" data-price="<?php echo $date->settings->get_pricing( $date->day, $hour ); ?>" value="<?php echo $hour; ?>"></a></li>
-		  <?php } } ?>
+		  <?php } ?>
 		  </ul>
 		</div>
 <!--
@@ -393,6 +396,8 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
         <button type="button" class="btn btn-primary update" data-dismiss="modal">Save changes</button>
         <button type="button" class="btn btn-warning cancel" data-dismiss="modal" id="cancel-reservation">Cancel reservation</button>
+        <button type="button" class="btn btn-warning pend" data-dismiss="modal" id="pend-reservation">Set pending</button>
+        <button type="button" class="btn btn-danger delete" data-dismiss="modal" id="delete-reservation">Delete reservation</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -406,33 +411,7 @@
 ?>
           <script type="text/javascript">
 	  $(function() {
-          	$('#date').datepicker().change( function() {
-/*
-			var ajaxdata = {
-				action:		'update_hours',
-				all:		true,
-				datefield:      $(this).val()
-			};
-
-			$.post( ajaxurl, ajaxdata, function(res){
-				$('#hours-menu').html(res);
-
-
-			var ajaxdata = {
-				action:		'update_hours_buttons',
-				buttons:	true,
-				datefield:      $('#date').val()
-			};
-
-			$.post( ajaxurl, ajaxdata, function(res){
-				$('#hours-buttons').html(res);
-                                $.getScript( "<?php echo plugins_url(); ?>/reservations/assets/hours.js" );
-
-			});
-
-			});
-*/
-
+          	$('#date, #manage-reservation-date').datepicker().change( function() {
 			$('#reportrange').val( $(this).val() ).trigger( 'change' );
 		});
 	  });

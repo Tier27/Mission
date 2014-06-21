@@ -1,31 +1,55 @@
-<?php
-/**
- * The template for displaying 404 pages (Not Found)
- *
- * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
- */
+<? /** Template Name: 404 **/ ?>
+<?php get_header(); ?>
+<?php $tdu = get_template_directory_uri(); ?>
+<?php $pagename='event'; ?>
+<link type="text/css" rel="stylesheet" href="<?php echo $tdu; ?>/css/404.css">
+<link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+<body>
+<div class="clear"></div>
 
-get_header(); ?>
+<div class="container">
+    <div class="error-template">
+        <h1>Oops!</h1>
+        <h2>404 Not Found</h2>
+        
+        <div class="error-details">
+            Sorry, an error has occured, Requested page not found!
+        </div>
+        
+        <div class="error-actions">
+            <a class="btn btn-danger btn-lg">Go Home </a>
+        </div>
+    </div> <!--/.error-template-->
+</div>
 
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+<script>
+jQuery(function($) {
+    $('#submit-contact').click(function() {
+        name = $('input[name="name"]').val();
+                var ajaxdata = {
+                        action:         'submit_contact_form',
+            name:        $('input[name="name"]').val(),
+            email:       $('input[name="email"]').val(),
+            phone:       $('input[name="phone"]').val(),
+            company:     $('input[name="company"]').val(),
+            count:       $('input[name="count"]').val(),
+            datefield:   $('input[name="date"]').val(),
+            time:        $('input[name="time"]').val(),
+            eventfield:  $('input[name="event"]').val(),
+            description:     $('textarea[name="description"]').val(),
+                };
 
-			<header class="page-header">
-				<h1 class="page-title"><?php _e( 'Not found', 'twentythirteen' ); ?></h1>
-			</header>
+                $.post( ajaxurl, ajaxdata, function(res){
+            $('#response-text').html(res);
+            $('#submit-contact').unbind('click');
+        });
 
-			<div class="page-wrapper">
-				<div class="page-content">
-					<h2><?php _e( 'This is somewhat embarrassing, isn&rsquo;t it?', 'twentythirteen' ); ?></h2>
-					<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'twentythirteen' ); ?></p>
+    });
+});
+</script>
 
-					<?php get_search_form(); ?>
-				</div><!-- .page-content -->
-			</div><!-- .page-wrapper -->
-
-		</div><!-- #content -->
-	</div><!-- #primary -->
-
+</div>
+<?php include ('F.php'); ?>
+</body>
+</html>
 <?php get_footer(); ?>

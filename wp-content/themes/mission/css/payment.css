@@ -1,0 +1,18 @@
+.bowling-output {
+	color: #D8D8D8;
+	font-size: 13px;
+}
+.alert-box {
+	border-style: solid;
+	border-width: 1px;
+	display: block;
+	font-weight: normal;
+	margin-bottom: 1.11111rem;
+	position: relative;
+	padding: 0.77778rem 1.33333rem 0.77778rem 0.77778rem;
+	font-size: 0.72222rem;
+	transition: opacity 300ms ease-out;
+	background-color: #e7e7e7;
+	border-color: #c7c7c7;
+	color: #4f4f4f;
+}

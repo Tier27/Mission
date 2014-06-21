@@ -1557,6 +1557,7 @@ add_action('wp_ajax_nopriv_submit_contact_form', 'submit_contact_form' );
 
 function process_authorize_transaction() {
 
+	//print_r( $_POST );
 	$api_login_id = '37M839anFv5';
 	$transaction_key = '6D58sy67W4U2Eehb';
 	$transaction = new AuthorizeNetAIM($api_login_id, $transaction_key);
@@ -1565,24 +1566,40 @@ function process_authorize_transaction() {
 	$transaction->company = $_POST['company'];
 	$transaction->phone = $_POST['phone'];
 	$transaction->email = $_POST['email'];
-	echo "TEST";
 	$transaction->address = $_POST['address'];
 	$transaction->city = $_POST['city'];
 	$transaction->state = $_POST['state'];
 	$transaction->zip = $_POST['zip'];
-	$transaction->amount = '8.99';
+	$transaction->amount = $_POST['amount'];
 	$transaction->card_num = '4007000000027';
 	$transaction->exp_date = '10/16';
 
 	$response = $transaction->authorizeAndCapture();
-	print_r( $response );
+	//print_r( $response );
 
+	echo json_encode($response);
 	if ($response->approved) {
-	  echo "<h1>Success! The test credit card has been charged!</h1>";
-	  echo "Transaction ID: " . $response->transaction_id;
+		$reservation = new rvReservation( $_POST['ID'] );
+		if( (int)$_POST['amount'] == (int)$reservation->price ) : 
+			$reservation->status = 'paid';
+		else :
+			$reservation->status = 'reserve';
+		endif;
+		$reservation->update('status', $reservation->status);
+		$reservation->paid = '$' . $_POST['amount'];
+		$reservation->update('paid', $reservation->paid);
+		
+		/*********** The Save-All ****************/
+		$reservation->payment_response = $response;
+		$reservation->update('payment_response', $reservation->payment_response);
+		/*****************************************/
+
+	  //echo "<h1>Success! The test credit card has been charged!</h1>";
+	  //echo "Transaction ID: " . $response->transaction_id;
 	} else {
-	  echo $response->error_message;
+	  //echo $response->error_message;
 	}
+	die;
 
 }
 

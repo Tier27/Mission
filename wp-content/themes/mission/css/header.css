@@ -188,7 +188,20 @@ p.groups-box-title {
   -webkit-appearance: none;
 }
 
+
 /* Go Button */
+
+#modal-button,
+#dining-reservation-button {
+  padding: 2px 6px;
+  border-radius: 1px;
+  transition: .1s;
+}
+#modal-button:hover,
+#dining-reservation-button:hover {
+  background: #aaa;
+}
+
 input#gobutton {
   position: relative;
   display: inline-block;
@@ -197,7 +210,7 @@ input#gobutton {
   letter-spacing: 1px;
   margin: 0px 0 0 5px;
   cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
-  padding:6px 9px 5px 6px; /*add some padding to the inside of the button*/
+  padding:3px 4.5px 2.5px 3px; /*add some padding to the inside of the button*/
   background:#595959; /*the color of the button*/
   border:1px solid #333333; /*required or the default border for the browser will appear*/
   /*give the button curved corners, alter the size as required*/

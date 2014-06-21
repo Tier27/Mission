@@ -1,0 +1,592 @@
+<!DOCTYPE HTML>
+<head lang="en-US">
+<head>
+  <link rel="alternate" type="application/rss+xml" title="Mission Bowling Club &raquo; Feed" href="http://development.tier27.com/Mission/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Mission Bowling Club &raquo; Comments Feed" href="http://development.tier27.com/Mission/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Mission Bowling Club &raquo; Home Comments Feed" href="http://development.tier27.com/Mission/home/feed/" />
+<link rel='stylesheet' id='reservations-css-css'  href='http://development.tier27.com/Mission/wp-content/plugins/reservations/assets/reservations.css?ver=3.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='twentythirteen-fonts-css'  href='//fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C700%2C300italic%2C400italic%2C700italic%7CBitter%3A400%2C700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/fonts/genericons.css?ver=2.09' type='text/css' media='all' />
+<link rel='stylesheet' id='twentythirteen-style-css'  href='http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/style.css?ver=2013-07-18' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentythirteen-ie-css'  href='http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/css/ie.css?ver=2013-07-18' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='http://development.tier27.com/Mission/wp-includes/js/jquery/jquery.js?ver=1.10.2'></script>
+<script type='text/javascript' src='http://development.tier27.com/Mission/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://development.tier27.com/Mission/wp-includes/js/comment-reply.min.js?ver=3.7.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://development.tier27.com/Mission/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://development.tier27.com/Mission/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Sample Page' href='http://development.tier27.com/Mission/sample-page/' />
+<link rel='next' title='Bowling' href='http://development.tier27.com/Mission/bowling/' />
+<meta name="generator" content="WordPress 3.7.1" />
+<link rel='canonical' href='http://development.tier27.com/Mission/' />
+<link rel='shortlink' href='http://development.tier27.com/Mission/?p=4' />
+        <!-- Booking Calendar Scripts -->
+        <script  type="text/javascript">
+            var wpdev_bk_plugin_url     = 'http://development.tier27.com/Mission/wp-content/plugins/booking';
+            var wpdev_bk_today          = new Array( parseInt(2014),  parseInt(2),  parseInt(8),  parseInt(22),  parseInt(0)  );
+            var visible_booking_id_on_page      = [];
+            var booking_max_monthes_in_calendar = '1y';
+            var user_unavilable_days    = [];
+            var wpdev_bk_edit_id_hash   = '';
+            var wpdev_bk_plugin_filename= 'wpdev-booking.php';
+            var bk_days_selection_mode     = 'multiple';  // {'single', 'multiple', 'fixed', 'dynamic'}
+            var wpdev_bk_personal       = 0;
+            var block_some_dates_from_today = 0;
+            var message_verif_requred = 'This field is required';
+            var message_verif_requred_for_check_box = 'This checkbox must be checked';
+            var message_verif_emeil = 'Incorrect email field';
+            var message_verif_selectdts = 'Please, select booking date(s) at Calendar.';
+            var parent_booking_resources = [];
+            var new_booking_title= 'Thank you for your online booking.  We will send confirmation of your booking as soon as possible.';
+            var new_booking_title_time= 7000;
+            var type_of_thank_you_message = 'message';
+            var thank_you_page_URL = 'http://development.tier27.com/Mission';
+            var is_am_pm_inside_time = false;
+            var is_booking_used_check_in_out_time = false;
+                    </script><script type="text/javascript" src="http://development.tier27.com/Mission/wp-content/plugins/booking/js/datepick/jquery.datepick.js"></script>   <script type="text/javascript" src="http://development.tier27.com/Mission/wp-content/plugins/booking/js/wpdev.bk.js"></script>   <!-- End Booking Calendar Scripts -->  <link href="http://development.tier27.com/Mission/wp-content/plugins/booking/interface/bs/css/bs.min.css" rel="stylesheet" type="text/css" />   <link href="http://development.tier27.com/Mission/wp-content/plugins/booking/css/client.css" rel="stylesheet" type="text/css" />  <link href="http://development.tier27.com/Mission/wp-content/plugins/booking/css/calendar.css" rel="stylesheet" type="text/css" />  <link href="http://development.tier27.com/Mission/wp-content/plugins/booking/css/skins/traditional.css" rel="stylesheet" type="text/css" /> <style type="text/css">
+    .calnk a:hover {
+        background-position:0 0;
+        text-decoration:none;  
+        color:#000000;
+        border-bottom:1px dotted #000000;
+     }
+    .calnk a:visited {
+        text-decoration:none;
+        color:#000000;
+        border-bottom:1px dotted #000000;
+    }
+    .calnk a {
+        text-decoration:none; 
+        color:#000000; 
+        border-bottom:1px dotted #000000;
+    }
+    .calnk a span { 
+        display:none; 
+    }
+    .calnk a:hover span {
+        color:#333333; 
+        background:#F6F79B; 
+        display:block;
+        position:absolute; 
+        margin-top:1px; 
+        padding:5px; 
+        width:150px; 
+        z-index:100;
+        line-height:1.2em;
+    }
+    .calendar-table {
+        border:0 !important;
+        width:100% !important;
+        border-collapse:separate !important;
+        border-spacing:2px !important;
+    }
+    .calendar-heading {
+        height:25px;
+        text-align:center;
+        border:1px solid #D6DED5;
+        background-color:#E4EBE3;
+    }
+    .calendar-next {
+        width:25%;
+        text-align:center;
+    }
+    .calendar-prev {
+        width:25%;
+        text-align:center;
+    }
+    .calendar-month {
+        width:50%;
+        text-align:center;
+        font-weight:bold;
+    }
+    .normal-day-heading {
+        text-align:center;
+        width:25px;
+        height:25px;
+        font-size:0.8em;
+        border:1px solid #DFE6DE;
+        background-color:#EBF2EA;
+    }
+    .weekend-heading {
+        text-align:center;
+        width:25px;
+        height:25px;
+        font-size:0.8em;
+        border:1px solid #DFE6DE;
+        background-color:#EBF2EA;
+        color:#FF0000;
+    }
+    .day-with-date {
+        vertical-align:text-top;
+        text-align:left;
+        width:60px;
+        height:60px;
+        border:1px solid #DFE6DE;
+    }
+    .no-events {
+
+    }
+    .day-without-date {
+        width:60px;
+        height:60px;
+        border:1px solid #E9F0E8;
+    }
+    span.weekend {
+        color:#FF0000;
+    }
+    .current-day {
+        vertical-align:text-top;
+        text-align:left;
+        width:60px;
+        height:60px;
+        border:1px solid #BFBFBF;
+        background-color:#E4EBE3;
+    }
+    span.event {
+        font-size:0.75em;
+    }
+    .kjo-link {
+        font-size:0.75em;
+        text-align:center;
+    }
+    .calendar-date-switcher {
+        height:25px;
+        text-align:center;
+        border:1px solid #D6DED5;
+        background-color:#E4EBE3;
+    }
+    .calendar-date-switcher form {
+        margin:2px;
+    }
+    .calendar-date-switcher input {
+        border:1px #D6DED5 solid;
+        margin:0;
+    }
+    .calendar-date-switcher select {
+        border:1px #D6DED5 solid;
+        margin:0;
+    }
+    .calnk a:hover span span.event-title {
+        padding:0;
+        text-align:center;
+        font-weight:bold;
+        font-size:1.2em;
+        margin-left:0px;
+    }
+    .calnk a:hover span span.event-title-break {
+        width:96%;
+        text-align:center;
+        height:1px;
+        margin-top:5px;
+        margin-right:2%;
+        padding:0;
+        background-color:#000000;
+        margin-left:0px;
+    }
+    .calnk a:hover span span.event-content-break {
+        width:96%;
+        text-align:center;
+        height:1px;
+        margin-top:5px;
+        margin-right:2%;
+        padding:0;
+        background-color:#000000;
+        margin-left:0px;
+    }
+    .page-upcoming-events {
+        font-size:80%;
+    }
+    .page-todays-events {
+        font-size:80%;
+    }
+    .calendar-table table,tbody,tr,td {
+        margin:0 !important;
+        padding:0 !important;
+    }
+    table.calendar-table {
+        margin-bottom:5px !important;
+    }
+    .cat-key {
+        width:100%;
+        margin-top:30px;
+        padding:5px;
+        border:0 !important;
+    }
+    .cal-separate {
+       border:0 !important;
+       margin-top:10px;
+    }
+    table.cat-key {
+       margin-top:5px !important;
+       border:1px solid #DFE6DE !important;
+       border-collapse:separate !important;
+       border-spacing:4px !important;
+       margin-left:2px !important;
+       width:99.5% !important;
+       margin-bottom:5px !important;
+    }
+    .cat-key td {
+       border:0 !important;
+    }
+</style>
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+	<style type="text/css" id="twentythirteen-header-css">
+			.site-header {
+			background: url(http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/images/headers/circle.png) no-repeat scroll top;
+			background-size: 1600px auto;
+		}
+		</style>
+	  <link type="text/css" rel="stylesheet" href="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/css/partial-bootstrap.css">
+  <link type="text/css" rel="stylesheet" href="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC-Reservation/css/custom-style.css">
+  <link type="text/css" rel="stylesheet" href="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/css/header.css">
+  <link type="text/css" rel="stylesheet" href="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/css/style.css">
+  <link rel="stylesheet" type="text/css" media="all" href="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC-Reservation/css/daterangepicker-bs3.css" />
+  <script type="text/javascript" src="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC-Reservation/js/jquery.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <script type="text/javascript" src="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC-Reservation/js/bootstrap.js"></script>
+  <meta charset='utf-8'> 
+  <title>Mission Bowling Club</title>
+</head>
+<body>
+    <div id="header-reservation">
+    <div id="header-reservation-contents">
+    <script>
+	var template_path = "http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom";
+	function TSI($obj, $index, $path) { var AI = parseInt($obj.src.substr($obj.src.length-5)); if (AI == $index) { NI = AI + 3; $obj.src=template_path+"/MBC/"+$path+"/SMI-"+NI+".png"; } else { $obj.src=template_path+"/MBC/"+$path+"/SMI-"+$index+".png"; } }
+    </script>
+	<div id="newid"></div>
+        <div id="social-media">
+            <ul>
+		<li><a href=https://twitter.com/MissionBowling><img src='http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/img/SMI-1.png' onmouseover='TSI(this, 1,"img");'></a></li><li><a href=https://www.facebook.com/missionbowlingclub><img src='http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/img/SMI-2.png' onmouseover='TSI(this, 2,"img");'></a></li><li><a href=#><img src='http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/img/SMI-3.png' onmouseover='TSI(this, 3,"img");'></a></li>            </ul>
+        </div>
+        <div id="header-reservation-lane">
+            <p>Reserve a Lane</p>        
+        <div class="select-box-beta">
+            <select name="date">
+		<option value='02/09/2014'>Sun Feb 9</option><option value='02/10/2014'>Mon Feb 10</option><option value='02/11/2014'>Tue Feb 11</option><option value='02/12/2014'>Wed Feb 12</option><option value='02/13/2014'>Thu Feb 13</option><option value='02/14/2014'>Fri Feb 14</option><option value='02/15/2014'>Sat Feb 15</option>            </select>
+        </div>
+	<div class="select-box-beta">
+		<select name="lanes">
+			<option value=1>1</option>
+			<option value=2>2</option>
+		</select>
+	</div>
+	<button class="btn" id="modal-button" data-toggle="modal" data-target="#myModal"> Go </button>
+        </div>
+         <div id="header-reservation-table">
+            <p>Reserve a Table</p>
+
+        <div class="select-box-beta">
+            <select>
+                <option>Sat Sep 7</option>
+                <option>Sun Sep 8</option>
+                <option>Mon Sep 9</option>
+                <option>Tue Sep 10</option>
+                <option>Wed Sep 11</option>
+                <option>Thu Sep 12</option>
+                <option>Fri Sep 13</option>
+                <option>Sat Sep 14</option> 
+            </select>
+        </div>
+	<div class="select-box-beta">
+            <select>
+                <option>6:00 pm</option>
+                <option>6:15 pm</option>
+                <option>6:45 pm</option>
+                <option>7:00 pm</option>
+                <option>7:15 pm</option>
+                <option>7:45 pm</option>
+            </select>
+        </div>
+        <input id="gobutton" type="submit" value="Go";>
+        </div>
+    </div>
+    </div>
+    <div class="clear"></div>
+<div id="headere">
+    <div class="clear"></div>
+    <div id="header-containere">
+    <div id="header-nave">
+	<style> #header-nave a#-hn { color: #b5121b; } </style>
+        <ul>
+	    			<a id="nav-tri-bowling" href="http://development.tier27.com/Mission/bowling"><img src="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/img/lane-arrow.png"></a>
+		<li><a class="header-linke" id="bowling-hn" href="http://development.tier27.com/Mission/bowling">Bowling</a></li>
+				<a id="nav-tri-dinner" href="http://development.tier27.com/Mission/dinner"><img src="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/img/lane-arrow.png"></a>
+		<li><a class="header-linke" id="dinner-hn" href="http://development.tier27.com/Mission/dinner">Dinner</a></li>
+				<a id="nav-tri-drinks" href="http://development.tier27.com/Mission/drinks"><img src="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/img/lane-arrow.png"></a>
+		<li><a class="header-linke" id="drinks-hn" href="http://development.tier27.com/Mission/drinks">Drinks</a></li>
+				<a id="nav-tri-brunch" href="http://development.tier27.com/Mission/brunch"><img src="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/img/lane-arrow.png"></a>
+		<li><a class="header-linke" id="brunch-hn" href="http://development.tier27.com/Mission/brunch">Brunch</a></li>
+				<a id="nav-tri-calendar" href="http://development.tier27.com/Mission/calendar"><img src="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/img/lane-arrow.png"></a>
+		<li><a class="header-linke" id="calendar-hn" href="http://development.tier27.com/Mission/calendar">Calendar</a></li>
+				<a id="nav-tri-event" href="http://development.tier27.com/Mission/event"><img src="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/img/lane-arrow.png"></a>
+		<li><a class="header-linke" id="event-hn" href="http://development.tier27.com/Mission/event">Plan an Event</a></li>
+				<a id="nav-tri-about" href="http://development.tier27.com/Mission/about"><img src="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/img/lane-arrow.png"></a>
+		<li><a class="header-linke" id="about-hn" href="http://development.tier27.com/Mission/about">About MBC</a></li>
+		        </ul>
+    </div>
+    <div id="header-logo">
+        <a href="http://development.tier27.com/Mission"><img src="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/imagene/uploads/logo_t.png"></a>
+    </div>
+    <div id="logistical-information" class="header-banner">
+	<p>3176 17th St (@ S. Van Ness)</p><p>San Francisco, CA 94110</p><p>415.863.BOWL (2695)</p>    </div>
+    <br><br><br>    <div id='hours'>
+	<p>Under 21: Weekends 11-7pm</p><p>Monday-Wednesday: 3pm-11pm</p><p>Thursday & Friday: 3pm-Midnight</p><p>Saturday: 11am-Midnight</p><p>Sunday: 11am-11pm</p>    </div>
+</div>
+<div class="clear"></div>
+<div class="red-tape" style="display: inline-block; margin-top: -10px; margin-left: auto; margin-right: auto; width: 100%;">
+<style> #left-tape { width: 53%; height: 37px; } </style>
+<style> #right-tape { width: 37%; height: 37px; } </style>
+<style> #club { width: 10%; height: 37px; } </style>
+<img id="left-tape" src='http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/img/crop_r.png'><img id="club" src='http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/img/crop_c.png'><img id="right-tape" src='http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/img/crop_r.png'>
+</div>
+</div>
+</body>
+</html>
+</div>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Book Reservation</h4>
+      </div>
+      <div class="modal-body">
+        <div class="well" id="manage-reservation-target">
+          <form class="form-horizontal">
+            <fieldset>
+              <div class="control-group">
+                <label class="control-label" for="reservationtime">Reservation Date:</label>
+                <div class="controls">
+                  <div class="input-prepend">
+                    <input type="text" style="width: 300px" name="date" id="book-reservation-date" value="02/08/2014"  class="span4"/>
+                  </div>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="inline">
+                <label class="control-label">Lanes</label>
+                <div class="controls">
+                  <select type="text" class="input-sm" id="book-reservation-lanes" name="lanes" data-original-title="Lanes">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                  </select>
+                </div> 
+		</div>
+                <div class="inline">
+                <label class="control-label">Bowlers</label>
+                <div class="controls">
+                  <select type="text" class="input-sm" id="book-reservation-bowlers" name="bowlers" data-original-title="Bowlers">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                    <option value=6>6</option>
+                    <option value=7>7</option>
+                    <option value=8>8</option>
+                  </select>
+                </div> 
+		</div>
+		<div class="inline">
+                <div class="controls">
+		<div class="dropdown">
+		  <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown">
+		  Hours 
+		    <span class="caret"></span>
+		  </button>
+		  
+		  <ul class="dropdown-menu" role="menu" id="book-reservation-hours-menu" aria-labelledby="dropdownMenu2">
+		  		  <li><a><span class="count hide">6</span>11:00 am<input type="checkbox" name="hour" class="book-reservation-hours hide" value="11"><span  style="float: right;">$<span class="pricetag">35</span></span></a></li>
+		  		  <li><a><span class="count hide">6</span>12:00 pm<input type="checkbox" name="hour" class="book-reservation-hours hide" value="12"><span  style="float: right;">$<span class="pricetag">35</span></span></a></li>
+		  		  <li><a><span class="count hide">6</span>1:00 pm<input type="checkbox" name="hour" class="book-reservation-hours hide" value="13"><span  style="float: right;">$<span class="pricetag">35</span></span></a></li>
+		  		  <li><a><span class="count hide">6</span>2:00 pm<input type="checkbox" name="hour" class="book-reservation-hours hide" value="14"><span  style="float: right;">$<span class="pricetag">45</span></span></a></li>
+		  		  <li><a><span class="count hide">5</span>3:00 pm<input type="checkbox" name="hour" class="book-reservation-hours hide" value="15"><span  style="float: right;">$<span class="pricetag">45</span></span></a></li>
+		  		  <li><a><span class="count hide">5</span>4:00 pm<input type="checkbox" name="hour" class="book-reservation-hours hide" value="16"><span  style="float: right;">$<span class="pricetag">45</span></span></a></li>
+		  		  <li><a><span class="count hide">6</span>5:00 pm<input type="checkbox" name="hour" class="book-reservation-hours hide" value="17"><span  style="float: right;">$<span class="pricetag">45</span></span></a></li>
+		  		  <li><a><span class="count hide">6</span>6:00 pm<input type="checkbox" name="hour" class="book-reservation-hours hide" value="18"><span  style="float: right;">$<span class="pricetag">45</span></span></a></li>
+		  		  <li><a><span class="count hide">6</span>7:00 pm<input type="checkbox" name="hour" class="book-reservation-hours hide" value="19"><span  style="float: right;">$<span class="pricetag">45</span></span></a></li>
+		  		  <li><a><span class="count hide">6</span>8:00 pm<input type="checkbox" name="hour" class="book-reservation-hours hide" value="20"><span  style="float: right;">$<span class="pricetag">55</span></span></a></li>
+		  		  <li><a><span class="count hide">5</span>9:00 pm<input type="checkbox" name="hour" class="book-reservation-hours hide" value="21"><span  style="float: right;">$<span class="pricetag">55</span></span></a></li>
+		  		  <li><a><span class="count hide">5</span>10:00 pm<input type="checkbox" name="hour" class="book-reservation-hours hide" value="22"><span  style="float: right;">$<span class="pricetag">55</span></span></a></li>
+		  		  <li><a><span class="count hide">5</span>11:00 pm<input type="checkbox" name="hour" class="book-reservation-hours hide" value="23"><span  style="float: right;">$<span class="pricetag">55</span></span></a></li>
+		  		  </ul>
+		</div>
+                </div> 
+                </div>
+                <div class="inline">  
+                <div class="controls">
+                  <input type="text" class="input-sm hide" id="book-reservation-hours" name="hours" data-original-title="Bowlers">
+                </div>  
+                </div>
+              </div>
+              
+              <br>
+
+              <form role="form" class="reservations">
+                <div class="row">
+                  <label class="col-xs-4" for="name">Name:*</label>
+                  <div class="col-xs-8">
+                    <input type="email" class="form-control" id="book-reservation-name" placeholder="Name">
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-xs-4" for="company">Company:</label>
+                  <div class="col-xs-8">
+                    <input type="text" class="form-control" id="book-reservation-company" placeholder="Company">
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-xs-4" for="phone">Phone:</label>
+                  <div class="col-xs-8">
+                    <input type="text" class="form-control" id="book-reservation-phone" placeholder="Phone">
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-xs-4" for="email">Email:</label>
+                  <div class="col-xs-8">
+                    <input type="text" class="form-control" id="book-reservation-email" placeholder="Email">
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-xs-4" for="notes">Notes:</label>
+                  <div class="col-xs-12">
+                    <textarea class="form-control" id="book-reservation-notes" placeholder="Notes"></textarea>
+                  </div>
+                </div>
+                <div class="row">
+		<br>
+                </div>
+                <div class="row">
+                  <label class="col-xs-4" for="notes">Price:</label>
+                  <div class="col-xs-8">
+                    <input type="text" class="form-control" id="book-reservation-price" value=0>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-8">
+                    <input class="form-control hide" id="book-reservation-action" placeholder="Action" value="add_reservation">
+                  </div>
+                </div>
+              </form>
+              <div id="book-reservation-result" >Result</div>
+
+
+
+            </fieldset>
+          </form>
+        </div> 
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
+        <button type="button" class="btn btn-primary" id="book-reservation-submit" data-dismiss="modal">Book</button>
+	<input type="hidden" id="RID">
+	<div class="hide" id="anf"></div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--
+<script type='text/javascript' src='http://development.tier27.com/Mission/wp-content/plugins/reservations/assets/reservations.js?ver=1.01'></script>
+<script type='text/javascript' src='http://development.tier27.com/Mission/wp-content/plugins/reservations/assets/subscript.js?ver=1.01'></script>
+-->
+<script> var ajaxurl = 'http://development.tier27.com/Mission/wp-admin/admin-ajax.php'; </script>	<script>
+	jQuery( function($) {
+		$('#anf').click( function() {
+		var names = $('#book-reservation-name').val().split(' ');
+                var ajaxdata = {
+                        action:         'authorize_net_form',
+			ID:		$('#RID').val(),
+			price:		$('#book-reservation-price').val(),
+			first:		names[0],
+			last:		names[1],
+			company:	$('#book-reservation-company').val(),
+			email:		$('#book-reservation-email').val(),
+			phone:		$('#book-reservation-phone').val()
+                };
+
+                $.post( ajaxurl, ajaxdata, function(res){
+                        $('#anf').html(res);
+			$('#submit-pay').trigger('click');
+		});
+
+		});
+	});
+	</script>
+<script>
+          	$('#book-reservation-date').datepicker().change( function() {
+			var ajaxdata = {
+				action:		'update_hours',
+				append:		'book-reservation-',
+				date:           $(this).val()
+			};
+
+			$.post( ajaxurl, ajaxdata, function(res){
+				$('#book-reservation-hours-menu').html(res);
+                                $.getScript( "http://development.tier27.com/Mission/wp-content/plugins/reservations/assets/modal.js" );
+
+			});
+
+		});
+</script>
+<script src="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/js/jquery.min.js"></script>
+<script src="jquery.min.js"></script>
+<script>
+var simages = new Array();
+var stimer = new Array();
+var sfadein = new Array();
+var sfadeout = new Array();
+simages[2]='MBS-8.jpg'; stimer[2]='4000'; sfadein[2]=1000; sfadeout[2]=1000; simages[3]='MBS-1.jpg'; stimer[3]='2500'; sfadein[3]=0; sfadeout[3]=0; simages[5]='MBS-2.jpg'; stimer[5]='1000'; sfadein[5]=0; sfadeout[5]=0; simages[4]='MBS-3.jpg'; stimer[4]='1000'; sfadein[4]=0; sfadeout[4]=0; simages[6]='MBS-5.jpg'; stimer[6]='1000'; sfadein[6]=0; sfadeout[6]=0; simages[1]='MBS-7.jpg'; stimer[1]='1000'; sfadein[1]=0; sfadeout[1]=0; simages[7]='MBS-8.jpg'; stimer[7]='1000'; sfadein[7]=0; sfadeout[7]=0; var count=7; imgCounter=0;
+function cycle() { if (imgCounter==count) { return; }
+		   var contentURL = "http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/";
+		   imgCounter++;
+		   timer=stimer[imgCounter];  
+		   setTimeout('$("#background").animate({ opacity: "1" }, 3000);', 5000);
+		   if (sfadein[imgCounter]>0) { document.getElementById("picture").style.opacity='0'; }
+		   document.getElementById("picture").src=contentURL+'imagene/uploads/' + simages[imgCounter]; 
+		   if (sfadein[imgCounter]==0) { setTimeout(function () { document.getElementById("picture").style.opacity='1'; }, 50); }
+		   if (sfadein[imgCounter]!=0) { setTimeout(function () { $("#picture").animate({ opacity: "1" }, sfadein[imgCounter]); }, 0); }
+		   if (sfadeout[imgCounter]>0) { setTimeout(function () { $("#picture").animate({ opacity: "0" }, sfadeout[imgCounter]); }, timer-sfadeout[imgCounter]-sfadein[imgCounter]); }
+		   setTimeout("cycle();", timer); 
+			}
+</script>
+<body onload="cycle();">
+<div id="photo-gallery">
+<img id="left-arrow" class="photo-nav-arrow beginHide fadeIn fadeInThree" src="css/left-arrow-clean.png">
+<div id="right-arrow" class="photo-nav-arrow beginHide fadeIn fadeInThree"></div>
+<img id="background" src="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/imagene/uploads/MBS-6.jpg" style="display:block; position: absolute; width: 100%; height: 100%; opacity: 0;"> 
+<img id="picture" src="" style="display:block; position: relative; margin: auto auto; margin-top: 100px; opacity: 0;"> 
+</div>
+</body>
+</html>
+<link type="text/css" rel="stylesheet" href="http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/MBC/css/footer.css">
+<div class="clear"></div>
+<div id="footer">
+	<div id="footer-content">
+		<div id="footer-copyright">
+			<p>© Copyright 2013 Mission Bowling Club</p>
+		</div>
+		<div id="footer-navbar">
+			<style> #-fn a { color: #b5121b; } </style>
+			<ul>
+			<li id='bowling-fn'><a href='http://development.tier27.com/Mission/bowling'>Bowling</a></li><li id='dinner-fn'><a href='http://development.tier27.com/Mission/dinner'>Dinner</a></li><li id='drinks-fn'><a href='http://development.tier27.com/Mission/drinks'>Drinks</a></li><li id='brunch-fn'><a href='http://development.tier27.com/Mission/brunch'>Brunch</a></li><li id='calendar-fn'><a href='http://development.tier27.com/Mission/calendar'>Calendar</a></li><li id='event-fn'><a href='http://development.tier27.com/Mission/event'>Plan an Event</a></li><li id='about-fn'><a href='http://development.tier27.com/Mission/about'>About MBC</a></li>			</ul>
+		</div>
+	</div>
+</div>
+
+<script type='text/javascript' src='http://development.tier27.com/Mission/wp-content/plugins/reservations/assets/modal.js?ver=1.01'></script>
+<script type='text/javascript' src='http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/js/bowling.js?ver=2013-07-18'></script>
+<script type='text/javascript' src='http://development.tier27.com/Mission/wp-includes/js/jquery/ui/jquery.ui.core.min.js?ver=1.10.3'></script>
+<script type='text/javascript' src='http://development.tier27.com/Mission/wp-includes/js/jquery/ui/jquery.ui.datepicker.min.js?ver=1.10.3'></script>
+<script type='text/javascript' src='http://development.tier27.com/Mission/wp-content/plugins/booking-system/assets/js/jquery.dop.FrontendBookingSystem.js?ver=3.7.1'></script>
+<script type='text/javascript' src='http://development.tier27.com/Mission/wp-includes/js/jquery/jquery.masonry.min.js?ver=2.1.05'></script>
+<script type='text/javascript' src='http://development.tier27.com/Mission/wp-content/themes/twentythirteen-custom/js/functions.js?ver=2013-07-18'></script>
+</body>
+</html>

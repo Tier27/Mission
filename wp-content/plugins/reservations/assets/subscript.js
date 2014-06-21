@@ -1,6 +1,5 @@
 jQuery( function( $ ) {
 
-
 	//$('.filled').css( 'padding-left', '10px' );
 	$('.filled').unbind('mouseenter').unbind('mouseleave').unbind('click').hover( function() {
 		var ID = $(this).find('.id').html();
@@ -10,6 +9,7 @@ jQuery( function( $ ) {
 			}
 		});
 	}).click( function() {
+		global_data.current_reservation = $(this);
 		$('#modal-button').hide().trigger( 'click' );
 		$('#manage-reservation-date').val($('#reportrange').val());
 		$('#manage-reservation-name').val($(this).find('.name').contents().html());
@@ -21,7 +21,8 @@ jQuery( function( $ ) {
 			$('#delete-reservation').hide();
 		}
 		else {
-			$('#delete-reservation').show();
+			//$('#delete-reservation').show();
+			$('#delete-reservation').hide();
 		}
 		$('#manage-reservation-notes').val($(this).find('.notes').html());
 		$('#manage-reservation-id').val($(this).find('.id').html());
@@ -33,19 +34,22 @@ jQuery( function( $ ) {
 		$('#manage-reservation-bowlers option[value="' + bowlers + '"]').prop('selected', true);
 		var hours = $(this).find('.hours').html();
 		hours = hours.split( ',' );
+		global_data.current_reservation_hours = hours;
 		$('#manage-reservation-hours').val( hours );
 		$('.manage-reservation-hours:checked').parent().trigger('click');
 		$.each( hours, function( index, value ) {
-			$('.manage-reservation-hours[value="' + value + '"]').parent().trigger('click');
+			//$('.manage-reservation-hours[value="' + value + '"]').parent().trigger('click');
+			$('#manage-reservation-button-' + value).removeClass('hide').trigger('click');
 		});
 		bool = $.inArray( '14', hours );
 		$('#dropdownMenu2').html(bool);
 		$('.modal-footer .update').html('Save changes');	
 		$('.modal-footer .cancel').show();	
+		$('.modal-footer .pend').show();	
 	});
 
 
-	$('.canceled-reservation').click( function() {
+	$('.canceled-reservation, .pending-reservation').click( function() {
 		$('#modal-button').hide().trigger( 'click' );
 		$('#manage-reservation-date').val($('#reportrange').val());
 		$('#manage-reservation-name').val($(this).find('.name').contents().html());
@@ -78,8 +82,25 @@ jQuery( function( $ ) {
 		$('#dropdownMenu2').html(bool);
 		$('.modal-footer .update').html('Rebook reservation');	
 		$('.modal-footer .cancel').hide();	
+		$('.modal-footer .pend').hide();	
 	});
 
 
 });
 
+jQuery(function($){
+	var $wind = $('#reservation-closeup');
+	//$wind.hide();
+	var fields = new Array("name", "company", "lanes", "bowlers", "phone", "email", "balance-paid", "balance", "created", "status", "made_by", "notes");
+	var $res;
+	$('.reservation').mouseover(function(){
+		$res = $(this);
+		$.each(fields, function(index, value){
+			console.log(value);
+			$wind.find('.' + value).find('.value').html($res.find('.' + value).html());
+		});
+		$wind.show();
+	}).mouseout(function(){
+		$wind.hide();
+	});
+});

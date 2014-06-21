@@ -9,5 +9,7 @@
 .pending-reservation{background: #ffa07a;width:100%;}
 .hours { color: #000; }
 .glyphicon { cursor: pointer; }
-.reservation-wrap { outline: solid 1px gold; position: relative;  }
+.reservation-wrap { position: relative; padding-bottom: 10px; }
 .reservation-wrap h5 { margin-top: 0px; }
+fieldset { border: none !important; }
+#reservation-closeup { display: none; }

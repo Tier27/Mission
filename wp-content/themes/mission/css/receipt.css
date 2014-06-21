@@ -1,0 +1,19 @@
+.new-page p {
+	font-size: 14px;
+}
+.new-page table {
+	background: none;
+	margin-bottom: 1.11111rem;
+	border: solid 1px #ddd;
+	border-collapse: separate;
+	border-spacing: 2px;
+}
+.new-page table tr th, 
+.new-page table tr td {
+	padding: 0.5rem 0.55556rem !important;
+	font-size: 0.77778rem !important;
+	color: #fff !important;
+}
+.new-page tr {
+	border-bottom: 1px solid #aaa !important;
+}
