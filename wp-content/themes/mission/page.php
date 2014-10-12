@@ -12,7 +12,7 @@
  */
 
 get_header(); ?>
-<div id="myTest">TEST</div>
+<div id="myTest">Page</div>
 
 <?php the_post( '37' ); the_content(); ?>
 

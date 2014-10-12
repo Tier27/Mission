@@ -1,0 +1,158 @@
+/* ==================
+Tier 27
+written for - Tier 27
+
+swatch colors
+=====================
+#3D4857 - blue
+#282c33 - dark blue (active link)
+#DE1B1B - red
+#8F9BAB - baby blue
+#f1eee5 - cream
+#B5B3AE - gray
+#AA273D - maroon
+===================== */
+/*----------------------------
+	CSS3 Resets 
+-----------------------------*/
+* {
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+	background: url('../../img/dark_Tire.png');
+}
+.sidebar, #future {
+	background: #fff;
+	border-radius: 5px;
+}
+#future td {
+	border: solid 1px;
+}
+.sidebar h4 {
+	color: #111;
+}
+.inline {
+	display: inline-block;
+	margin-right: 1em;
+}
+.well {
+	background:  !important;
+}
+/*----------------------------
+	Form 
+-----------------------------*/
+.row input {
+	margin-bottom: 1em !important;
+}
+/*----------------------------
+	Calendar 
+-----------------------------*/
+.calendar a {
+	color: #5D7AC3;
+}
+.calendar a:hover {
+	color: #294487;
+}
+.calendar span.badge {
+	position: absolute;
+	bottom: 3px;
+	right: 3px;
+}
+.calendar span.balanced {
+/*
+	position: absolute;
+	top: 3px;
+	right: 3px;
+*/
+	font-size: .9em;
+	color: #c9302c;
+}
+.calendar h5.name {
+}
+.calendar h6.notes {
+	margin-bottom: 0;
+}
+.calendar p.dimension {
+	line-height: 10px;
+}
+.cal-heading {
+	margin-top: 5px;
+	background: #ccc;
+}
+.cal-heading h5 {
+	display: inline-block;
+	margin-right: 1em;
+}
+.calendar .event {
+	border: 1px solid #ccc;
+	/*
+	padding-top: 10px;
+	padding-bottom: 10px;
+	*/
+	color: white;
+}
+.filled {
+	background: #eba5a3;
+	background: #ADD8E6;
+	background: #FFA07A;
+}
+.calendar .paid {
+	background: #6B8E23;
+	background: #5cb85c;
+	background: #428bca;
+	background: #dff0d8;
+	background: #b2dba1;
+	color: black;
+}
+.calendar .reserve {
+	background: #EEE8AA;
+	background: #357EBD;
+	background: #428bca;
+	background: #fcf8e3;
+	color: black;
+}
+.calendar .hold {
+	background: #DB7093;
+	background: #D9534R;
+	background: #f2dede;
+	color: black;
+}
+.calendar .credit {
+	background: #ADD8E6;
+	background: #d9edf7;
+	color: black;
+}
+span.open, span.closed {
+	border-radius: 3px;
+	padding: 2px;
+	font-size: .9em;
+}
+span.closed {
+	font-size: .7em;
+}
+.active {
+
+	font-weight: bold;
+
+}
+
+.row {
+}
+
+.col-md-2-table, .col-md-4-table, .col-md-8-table {
+	position: relative;
+	display: table-cell;
+	/*padding-left: 10px;*/
+}
+.col-md-2-table {
+	width: 16.667%;
+}
+.col-md-4-table {
+	width: 33.333%;
+}
+.col-md-8-table {
+	width: 66.667%;
+}
+

@@ -15,7 +15,7 @@ td {
 						<?php the_content(); ?>
 			<?php endwhile; ?>
 <?php //get_template_part('components/calendar_'); ?>
-<?php get_template_part('components/call'); ?>
+<?php //get_template_part('components/call'); ?>
 </div><!--container-->
 <style>
 .calendar-table td {

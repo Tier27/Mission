@@ -24,3 +24,14 @@ function markForDeletion() {
 	$('.gallery-selectable').unbind('click', markForDeletion);
 }
 
+function automateModal() {
+	$modal = $('#myModal');
+	$modal.modal('show');
+	$modal.find('input[name="first-name"]').val('Josh');
+	$modal.find('input[name="last-name"]').val('Kornreich');
+	$modal.find('input[name="company"]').val('Tier 27');
+	$modal.find('input[name="phone"]').val('954 882 3115');
+	$modal.find('input[name="email"]').val('joshua@tier27.com');
+	$modal.find('textarea[name="notes"]').val('Some notes.');
+}
+//automateModal();

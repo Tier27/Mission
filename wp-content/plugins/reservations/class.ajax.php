@@ -269,6 +269,22 @@ class rvAjax {
 
 	}
 
+	public function get_reservations() {
+
+		extract( $_POST );
+		print_r( $_POST );
+		$post = json_decode($HTTP_RAW_POST_DATA);
+		if( !isset($start) ) $start = date('Y-m-d');
+		if( !isset($end) ) $end = $start;
+		global $wpdb;
+		$reservationIDs = $wpdb->get_col("SELECT post_id FROM wp_postmeta WHERE meta_key='datefield' AND meta_value='$start'");
+		$reservations = array();
+		foreach( $reservationIDs as $reservationID ) $reservations[] = new rvReservation( $reservationID );
+		//echo json_encode( $reservations );
+		die();
+
+	}
+
 }
 
 add_action('wp_ajax_update_future', array( 'rvAjax' , 'update_future' ) );
@@ -304,3 +320,6 @@ add_action('wp_ajax_nopriv_update_notes', array( 'rvAjax' , 'update_notes' ) );
 
 add_action('wp_ajax_get_notes', array( 'rvAjax' , 'get_notes' ) );
 add_action('wp_ajax_nopriv_get_notes', array( 'rvAjax' , 'get_notes' ) );
+
+add_action('wp_ajax_get_reservations', array( 'rvAjax' , 'get_reservations' ) );
+add_action('wp_ajax_nopriv_get_reservations', array( 'rvAjax' , 'get_reservations' ) );

@@ -46,11 +46,12 @@ endwhile;
 ?>
 		<?php moOutput::content( array( "tag" => "p", "id" => "$pagename-menu-content-first", "content" => "This is default content" ) ); ?>
 		<br>
-		<?php moOutput::content( array( "tag" => "p", "id" => "$pagename-menu-content-second", "content" => "This is default content" ) ); ?>
+		<?php moOutput::content( array( "tag" => "p", "id" => "$pagename-menu-content-second", "content" => "" ) ); ?>
 		<br>
 		<?php moOutput::content( array( "tag" => "p", "id" => "$pagename-menu-content-third", "content" => "This is default content" ) ); ?>
 		<br>
-		<?php moOutput::content( array( "tag" => "p", "id" => "$pagename-menu-content-fourth", "content" => "This is default content" ) ); ?>
+		<?php moOutput::content( array( "tag" => "p", "id" => "$pagename-menu-content-fourth", "content" => "" ) ); ?>
+		<br>
 <!--
 		<p><?php simple_block( 100, 'Mission Bowling Club is proud to serve award-winning, elevated comfort food by Executive Chef Frank. We offer dinner service 7 days a week beginning at 6pm, as well as an extensive Happy Hour menu between 3pm-6pm everyday. Come for the bowling, stay for the food.' ); ?></p><br>
 		<p><?php simple_block( 101, 'Parties of up to 8 can be made' ); ?> <a href="#"><?php simple_block( 103, 'online' ); ?>.</a></p><br>
@@ -134,10 +135,14 @@ endwhile;
 
 
 <?php get_footer(); ?>
+<?php if( IS_SITE_ADMIN ) : ?>
 <script>
 jQuery(function($) {
 	$('.image-contents img').bind( "click", gallery_alt );
 });
+</script>
+<?php endif; ?>
+<script>
 jQuery(function($) {
 	$.each($('.menu-image ul img'), function( index, value ) {
 		if( index == 0 ) return;	

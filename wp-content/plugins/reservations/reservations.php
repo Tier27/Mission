@@ -37,6 +37,7 @@ require_once plugin_dir_path( __FILE__ ) . 'class.retrieve.php';
 require_once plugin_dir_path( __FILE__ ) . 'class.settings.php';
 require_once plugin_dir_path( __FILE__ ) . 'class.format.php';
 require_once plugin_dir_path( __FILE__ ) . 'class.ajax.php';
+require_once plugin_dir_path( __FILE__ ) . 'class.api.php';
 require_once plugin_dir_path( __FILE__ ) . 'class.query.php';
 require_once plugin_dir_path( __FILE__ ) . 'class.html.php';
 require_once plugin_dir_path( __FILE__ ) . 'class.output.php';

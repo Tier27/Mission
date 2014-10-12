@@ -1048,9 +1048,18 @@ function bowling_js_script() {
 
 add_action('wp_enqueue_scripts', 'bowling_js_script');
 */
+function isSiteAdmin() {
+                $currentUser = wp_get_current_user();
+                return in_array('administrator', $currentUser->roles);
+}
+
 wp_enqueue_script( 'bowling-script', get_template_directory_uri() . '/js/bowling.js', array( 'jquery' ), '2013-07-18', true );
 wp_enqueue_script( 'editor-library', get_template_directory_uri() . '/js/library.js', array( 'jquery' ), '2013-07-18', true );
-wp_enqueue_script( 'editor-blocks', get_template_directory_uri() . '/js/blocks.js', array( 'jquery' ), '2013-07-18', true );
+if( isSiteAdmin() ) {
+	wp_enqueue_script( 'editor-blocks', get_template_directory_uri() . '/js/blocks.js', array( 'jquery' ), '2013-07-18', true );
+}
+wp_enqueue_script( 'reservation-app', get_template_directory_uri() . '/js/reservations.js', array( 'jquery' ), '2013-07-18', true );
+wp_enqueue_script( 'jquery-ui', get_template_directory_uri() . '/js/jquery-ui.js', array( 'jquery' ), '2013-07-18', true );
 
 function myplugin_add_custom_box() {
 
@@ -1520,11 +1529,6 @@ function simple_block( $ID, $fallback ) {
 	echo ( isSiteAdmin() ) ? "</span>" : '';
 }
 
-function isSiteAdmin(){
-    $currentUser = wp_get_current_user();
-    return in_array('administrator', $currentUser->roles);
-}
-
 function submit_contact_form() {
 
 	unset( $_POST['action'] );
@@ -1558,8 +1562,10 @@ add_action('wp_ajax_nopriv_submit_contact_form', 'submit_contact_form' );
 function process_authorize_transaction() {
 
 	//print_r( $_POST );
-	$api_login_id = '37M839anFv5';
+        $api_login_id = '37M839anFv5';
+	//$api_login_id = '3D84m7e5veCx';
 	$transaction_key = '6D58sy67W4U2Eehb';
+	//$transaction_key = '3W74aJYg48L46z3G';
 	$transaction = new AuthorizeNetAIM($api_login_id, $transaction_key);
 	$transaction->first_name = $_POST['first_name'];
 	$transaction->last_name = $_POST['last_name'];
@@ -1617,5 +1623,7 @@ function update_slideshow() {
 }
 
 add_action('wp_ajax_update_slideshow', 'update_slideshow' );
+define('RESERVATION_SYSTEM_URL', 'http://reservations.development.tier27.com');
+define('IS_SITE_ADMIN', moLibrary::isSiteAdmin());
 
 ?>

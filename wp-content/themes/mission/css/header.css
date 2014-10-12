@@ -120,7 +120,7 @@ li.facebook a:hover, li.twitter a:hover, li.rss a:hover {
 
 #header-reservation p {
   /*font: bold 12px 'Arial', helvetica, times;*/
-  font-size: 13px;
+  font-size: 16px;
   font-family: 'MyriadPro-Regular';
   line-height: 30px;
   color: #000000;
@@ -129,12 +129,12 @@ li.facebook a:hover, li.twitter a:hover, li.rss a:hover {
 #header-reservation-lane {
   margin: .75%;
   /*margin: 10px 15px 10px 5px;*/
-  width: 45%;
+  width: 35%;
 }
 
 #header-reservation-table {
   margin: .75%;
-  width: 38%;
+  width: 48%;
   float: right;
 }
 
@@ -245,14 +245,14 @@ input#gobutton {
   background-position: 0 .35em;
 }
 
-a#nav-tri-dinner, a#nav-tri-event, a#nav-tri-drinks, a#nav-tri-calendar, a#nav-tri-brunch, a#nav-tri-bowling, a#nav-tri-about {
+a#nav-tri-dinner, a#nav-tri-event, a#nav-tri-drinks, a#nav-tri-calendar, a#nav-tri-brunch, a#nav-tri-bowling, a#nav-tri-about, a#nav-tri-plan-an-event {
   display: inline-block;
   float: left;
   margin-top: 5px;
   padding-right: 15px;
 }
 
-a#nav-tri-dinner, a#nav-tri-event {
+a#nav-tri-dinner, a#nav-tri-event, a#nav-tri-plan-an-event {
   padding-left: 30px;
 }
 
@@ -346,4 +346,7 @@ a#nav-tri-brunch {
   padding-bottom: -20px !important;
   border: 1px solid;
   width: 200px;
+}
+select option:disabled {
+  background: darkgrey;
 }

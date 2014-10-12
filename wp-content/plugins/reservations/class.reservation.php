@@ -36,13 +36,13 @@ class rvReservation {
 	
 	}
 
-	public function __construct ( $args = NULL ) {
+	public function __construct ( $args = NULL, $params = array( 'post' => true ) ) {
 
 		$this->args = $args;
 		rvHTML::maybe( "Constructing reservation with $this->args" );
 		if ( ! is_array ( $this->args ) ) { 
 
-			self::build( $args );
+			self::build( $args, $params );
 			return;
 
 		}
@@ -122,12 +122,12 @@ class rvReservation {
 
 	}
 
-	public function build( $id ) {
+	public function build( $id, $params ) {
 
 		$this->ID = $id;
-		$this->post = $this->retrieve( $this->ID );	
+		if( $params['post'] ) $this->post = $this->retrieve( $this->ID );	
 		$this->extract_meta();
-		$this->date = new rvDate( $this->datefield );
+		if( $params['date'] ) $this->date = new rvDate( $this->datefield );
 	
 	}
 

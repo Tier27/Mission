@@ -6,10 +6,9 @@
   <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/reservations/css/custom-style.css">
   <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/header.css">
   <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
+  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/jquery-ui.css">
   <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/reservations/css/daterangepicker-bs3.css" />
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reservations/js/jquery.js"></script>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reservations/js/bootstrap.js"></script>
   <meta charset='utf-8'> 
   <title>Mission Bowling Club</title>
@@ -26,8 +25,8 @@
 	<div id="newid"></div>
         <div id="social-media">
             <ul>
-		<?php for ($i=1;$i<4;$i++) { 
-		$links = array('https://twitter.com/MissionBowling','https://www.facebook.com/missionbowlingclub', '#'); 
+		<?php for ($i=1;$i<3;$i++) { 
+		$links = array('https://twitter.com/MissionBowling','https://www.facebook.com/missionbowlingclub'); 
 		echo "<li><a href=".$links[$i-1]."><img src='".get_template_directory_uri()."/img/SMI-$i.png' onmouseover='TSI(this, $i,\"img\");'></a></li>"; } ?>
             </ul>
         </div>
@@ -36,7 +35,7 @@
 <?php
 $datetime = new DateTime(date('Y-m-d'));
 ?>
-	<div class="select-box-beta">
+	<div class="select-box-beta" style="display: none">
 		<select name="lanes" id="pre-book-lanes">
 			
 			<option value=1>1 lane</option>
@@ -99,6 +98,7 @@ $datetime = new DateTime(date('Y-m-d'));
 	<style> <?php echo '#header-nave a#'.$pagename.'-hn'; ?> { color: #b5121b; } </style>
         <ul>
 	    	<?php foreach ($pages as $page) { $title = get_set_title(get_set_id($page)); ?>
+		<?php //if( $page == 'event' ) $page = 'plan-an-event'; ?>
 		<a id="nav-tri-<?php echo $page; ?>" href="<?php echo bloginfo('wpurl').'/'.$page; ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/lane-arrow.png"></a>
 		<li><a class="header-linke" id="<?php echo $page; ?>-hn" href="<?php echo bloginfo('wpurl').'/'.$page; ?>"><?php echo $title; ?></a></li>
 		<?php } ?>
@@ -111,9 +111,12 @@ $datetime = new DateTime(date('Y-m-d'));
 	<?php execute_set_function(get_set_id('logistical-information')); ?>
     </div>
     <?php print_breaks(3); ?>
+	<?php moOutput::content( array( "tag" => "div", "id" => "hours", "content" => "<p>Under 21: Weekends 11-7pm</p><p>Monday-Wednesday: 3pm-11pm</p><p>Thursday & Friday: 3pm-Midnight</p><p>Saturday: 11am-Midnight</p><p>Sunday: 11am-11pm</p>" ) ); ?>
+<!--
     <div id='hours'>
 	<?php execute_set_function(get_set_id('hours')); ?>
     </div>
+-->
 </div>
 <div class="clear"></div>
 <div class="red-tape" style="display: inline-block; margin-top: -10px; margin-left: auto; margin-right: auto; width: 100%;">
@@ -489,6 +492,7 @@ if ( ! function_exists( 'wp_generate_attachment_metadata' ) ) require_once( ABSP
 
 		if ( $('#book-reservation-start option').first().attr('data-lanes')  == 1 ) $('#book-reservation-lanes option').last().hide();
 		$('#book-reservation-start, #book-reservation-hours-count, #book-reservation-lanes').change( function() {
+			return;
 			count = $('#book-reservation-hours-count').val();
 			if ( $('#book-reservation-start option:selected').attr('data-lanes')  == 1 ) $('#book-reservation-lanes option').first().attr('selected', true);
 			if ( count == 2 && $('#book-reservation-start option:selected').next().attr('data-lanes')  == 1 ) $('#book-reservation-lanes option').first().attr('selected', true);

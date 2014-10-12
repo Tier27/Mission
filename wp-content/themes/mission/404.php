@@ -1,4 +1,8 @@
 <? /** Template Name: 404 **/ ?>
+<?php 
+	preg_match('/\/Mission\/(.*)/', $_SERVER['REDIRECT_URL'], $matches);
+	if( $matches && is_array( $matches ) && !empty( $matches ) ) wp_redirect( home_url( $matches[1] ) );
+?>
 <?php get_header(); ?>
 <?php $tdu = get_template_directory_uri(); ?>
 <?php $pagename='event'; ?>
@@ -17,7 +21,7 @@
         </div>
         
         <div class="error-actions">
-            <a class="btn btn-danger btn-lg">Go Home </a>
+            <a href="<?php echo bloginfo('wpurl'); ?>" class="btn btn-danger btn-lg">Go Home </a>
         </div>
     </div> <!--/.error-template-->
 </div>

@@ -46,6 +46,7 @@ a:link, a:active, a:visited {
   font-weight: normal;
   color: #b5121b;
   font-family: 'Copperplate-Gothic-Light';
+  margin-top: 0px;
 }
 
 strong {

@@ -1,4 +1,7 @@
 <? /** Template Name: Payment **/ ?>
+<?php
+	if( empty($_POST) ) wp_redirect( home_url() );
+?>
 <?php get_header(); ?>
 <?php extract( $_POST ); ?>
 <?php //print_r( $_POST ); ?>
@@ -69,10 +72,22 @@
 	</div>
 	<div class="clear"></div>
 
-	<div class="alert-box">
+	<!--Transaction ID-->
+	<span id="transaction-number-container" style="display: none">
+	<div class="plan-event-contact-title">
+		<p>Confirmation #:</p>
+	</div>
+	<div class="plan-event-contact-input bowling-output" id="transaction-number">
+		<?php echo $price; ?>	
+	</div>
+	<div class="clear"></div>
+	</span>
+
+	<div class="alert-box" id="alert-message">
 		Please fill out the payment information below in order to make your reservation.
 	</div> <!--/.alert-box -->
 
+<span id="payment-container">
 <form class="payment" id="payment-form">
 	<h2 class="dots"><span class="dots">Payment Information</span><div class="stripe-line"> </div></h2>
 	<!--First Name-->
@@ -270,6 +285,8 @@
 
 </form>
 
+</span>
+
 </div>
 <script>
 var reservationID = <?php echo isset( $ID ) ? $ID : -1; ?>;
@@ -308,13 +325,15 @@ jQuery(function($){
 
 			$.post( ajaxurl, ajaxdata, function(res){
 				res = $.parseJSON(res);
-				if(res.approved == 'true') {
-					alert(res);
+				if(res.approved == true) {
 					$(window).unbind('beforeunload');
+					$('#payment-container').slideUp();
+					$('#transaction-number').html(res.transaction_id);
+					$('#transaction-number-container').slideDown();
+					$('#alert-message').html('Thank you! Your payment has been successfully processed.');
 				}
 				global_data.response = res;
 				console.log(res.approved);
-				console.log('done');
 			});
 		});
 });

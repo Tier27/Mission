@@ -218,7 +218,7 @@ ul.tabs li a.active {
     background-color:#dedede;  
     padding:15px;  
     border:1px solid #333333;     
-    height: 508px;
+    min-height: 508px;
 }  
 .content p {
     color: #0d0d0d !important;
@@ -277,6 +277,8 @@ ul.tabs li a.active {
 
 .qhead a {
   color: #b5121b !important;
+  font-size: 17px !important;
+  font-weight: bold !important;
 }
 .qhead a:hover { 
   text-decoration: none; 

@@ -290,3 +290,6 @@ p#describe-event {
 .button {
   margin-right: 4.5%;
 }
+.plan-event-contact-input textarea {
+  width: 40%;
+}

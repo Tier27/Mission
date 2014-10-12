@@ -6,17 +6,40 @@ $fields = array(
 	"bowlers" => "Bowlers", 
 	"phone" => "Phone",
 	"email" => "Email",
-	"balance-paid" => "Paid", 
+	//"balance-paid" => "Paid", 
 	"balance" => "Due", 
 	"created" => "Created",
+	"modified" => "Modified",
 	"status" => "Status",
-	"made_by" => "Created by",
-	"notes" => "Notes", 
+	"made_by" => "Creator",
+	//"notes" => "Notes", 
 ); 
 ?>
 <div id="reservation-closeup">
-<table>
+<div class="container">
+<div class="row">
 <?php foreach( $fields as $field => $display ) : ?>
+<div class="col-md-1 <?php echo $field; ?> key"><?php echo $display; ?></div>
+<?php endforeach; ?>
+</div>
+<div class="row">
+<?php foreach( $fields as $field => $display ) : ?>
+<div class="col-md-1 <?php echo $field; ?> value"><?php echo $display; ?></div>
+<?php endforeach; ?>
+</div>
+</div>
+<table class="hide">
+<tr>
+<?php foreach( $fields as $field => $display ) : ?>
+<th class="<?php echo $field; ?> key"><?php echo $display; ?></th>
+<?php endforeach; ?>
+</tr>
+<tr>
+<?php foreach( $fields as $field => $display ) : ?>
+<td class="<?php echo $field; ?> value"><?php echo $display; ?></td>
+<?php endforeach; ?>
+</tr>
+<?php foreach( $fields as $field => $display ) : continue; ?>
 <tr class="<?php echo $field; ?>">
 <td class="key"><?php echo $display; ?></td>
 <td class="value"></td>
@@ -28,30 +51,11 @@ $fields = array(
 #reservation-closeup {
 	position: fixed;
 	bottom: 0px;
-	right: 0px;
+	left: 0px;
 	background: white;
-	height: 300px;
-	width: 200px;
+	width: 100%;
 	border: solid 1px black;
 }
 </style>
 <script>
-/*
-jQuery(function($){
-	var $wind = $('#reservation-closeup');
-	$wind.hide();
-	var fields = new Array("name", "company", "lanes", "bowlers", "phone", "email", "balance-paid", "balance", "created", "status", "made_by", "notes");
-	var $res;
-	$('.reservation').mouseover(function(){
-		$res = $(this);
-		$.each(fields, function(index, value){
-			console.log(value);
-			$wind.find('.' + value).find('.value').html($res.find('.' + value).html());
-		});
-		$wind.show();
-	}).mouseout(function(){
-		$wind.hide();
-	});
-});
-*/
 </script>

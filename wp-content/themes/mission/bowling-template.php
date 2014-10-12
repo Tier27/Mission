@@ -1,7 +1,7 @@
 <? /** Template Name: Bowling **/ ?>
 <?php wp_enqueue_script('jquery'); ?>
 <?php get_header(); ?>
-<link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/MBC/css/bowling.css">
+<link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/bowling.css">
 <body>
 <?php $pagename='bowling'; ?>
 <?php 

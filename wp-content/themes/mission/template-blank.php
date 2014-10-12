@@ -1,6 +1,7 @@
 <?php /* Template Name: Blank Reservations*/ ?>
 <?php
 
+	if( !is_admin() ) wp_redirect( home_url() );
 	echo "START";
 	$date = new rvDate();
 	print_r( $date->canceled );

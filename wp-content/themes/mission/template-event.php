@@ -50,6 +50,8 @@
 
 <div id="plan-event-contact">
 	<h2 class="dots"><span class="dots"><?php simple_block( 117, 'Contact Form' ); ?></span><div class="stripe-line"> </div></h2>
+	<?php echo do_shortcode('[contact-form-7 id="2218" title="Untitled"]'); ?>
+	<div class="form hide">
 	<div class="plan-event-contact-title">
 		<p>Your Name:</p>
 	</div>
@@ -89,7 +91,7 @@
 		<p>Date:</p>
 	</div>
 	<div class="plan-event-contact-input">
-		<input type="text" name="date" placeholder="Click Here">
+		<input type="text" name="date" placeholder="<?php echo date('m/d/Y'); ?>">
 	</div>
 	<div class="clear"></div>
 	<div class="plan-event-contact-title">
@@ -120,6 +122,7 @@
 	<br>
 	<br>
 	<div id="response-text" style="color: #b5121b;"></div>
+	</div>
 
 </div>
 </div>

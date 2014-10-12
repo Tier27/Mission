@@ -148,7 +148,7 @@ jQuery(function($) {
 <?php if ( isSiteAdmin() ) { ?>
 <script>
 jQuery( function($) {
-	jQuery('body').dblclick( function() {
+	jQuery('#picture').dblclick( function() {
 		jQuery('#slideshow-button').trigger('click');
 		jQuery('#slideshowModal .modal-title').html('Slideshow');
 	});

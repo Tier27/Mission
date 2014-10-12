@@ -1,34 +1,82 @@
 <?php /* Template Name: Reservations */ ?>
+<?php //get_header(); ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <head>
   <meta charset="UTF-8" />
   <title>MBC Reservation System</title>
-  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/css/custom-style.css">
-  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/css/bootstrap.css">
-  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/css/font-awesome.css">
-  <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/css/daterangepicker-bs3.css" />
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/js/jquery.js"></script>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/js/moment.js"></script>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/MBC-Reservation/js/daterangepicker.js"></script>-->
+  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/reservations/css/custom-style.css">
+  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/reservations/css/bootstrap.css">
+  <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/reservations/css/font-awesome.css">
+  <link type='text/css' rel="stylesheet" href="<?php echo plugins_url(); ?>/reservations/assets/reservations.css?ver=1.01";
+  <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/reservations/css/daterangepicker-bs3.css" />
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reservations/js/jquery.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reservations/js/bootstrap.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/reservations/js/moment.js"></script>
 </head>
 <body>
+<?php $date = new rvDate( date( 'Y-m-d' ) ); ?>
 <br>
-  <div class="container">
+  <div class="full-container" style="margin: 0px 25px;">
+    <ul class="nav nav-tabs" hidden>
+      <li><a href="#" id="reservation-trigger">Create Booking</a></li>
+      <li><a href="#" id="calendar-trigger">Calendar</a></li>
+      <li class="hide"><a href="#" id="settings-trigger">Settings</a></li>
+    </ul>
     <div class="row">
-      <div class="col-sm-7 sidebar">
-        <legend>
-          <h4 style="color: #d9534f;" id="reservation-trigger">Create Booking</h4>
-        </legend>
+      <div class="col-lg-12">
+        <div class="well">
+	      <button class="btn btn-default" id="todays-date">Today</button>
+    	      <span class="glyphicon glyphicon-chevron-left"></span>
+              <input id="reportrange" class="" value="<?php echo date('m/d/Y'); ?>" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+    	      <span class="glyphicon glyphicon-chevron-right"></span>
+              <input id="search" class="" placeholder="Search..." style="background: #fff; padding: 5px 10px; border: 1px solid #ccc">
+    	      <button class="btn btn-default" id="search-trigger"><span class="glyphicon glyphicon-search" ></span><span style="padding-left: 10px;">Search</span></button>
+              <textarea id="day-notes" class="" style="width: 400px; background: #fff; padding: 5px 10px; border: 1px solid #ccc"><?php echo $date->notes; ?></textarea>
+	      <button class="btn btn-default" id="notes-update">Update Comment</button>
+	      <button class="btn btn-default" id="all-toggle">Show All</button>
+	</div>	
+      </div>
+    </div>
+    <div class="row">
+      <div class="tab col-sm-7 sidebar" id="settings" hidden>
+	Settings
+      </div>
+      <div class="tab col-sm-4 " id="reservation" hidden>
+<!--
+        <div class="well" style="height: 225px; margin-top: 20px;">
+          <div class="row">
+            <label class="col-xs-2" for="name">Date:</label>
+            <div class="col-xs-8">
+              <input id="reportrange" class="pull-right form-control" value="<?php echo date('m/d/Y'); ?>" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+            </div>
+          </div>
+          <div class="row">
+            <label class="col-xs-2" for="name">Search:</label>
+            <div class="col-xs-8">
+              <input id="search" class="pull-right form-control" placeholder="Search for a reservation" style="background: #fff; padding: 5px 10px; border: 1px solid #ccc">
+            </div>
+          </div>
+          <div class="row">
+            <label class="col-xs-2" for="name">Comments:</label>
+            <div class="col-xs-8">
+              <textarea id="day-notes" class="pull-right form-control" style="background: #fff; padding: 5px 10px; border: 1px solid #ccc"><?php echo $date->notes; ?></textarea>
+            </div>
+          </div>
+	  <button class="btn dropdown-toggle " id="print" type="button" id="dropdownMenu1" data-toggle="dropdown">Print</button>
+	</div>
+-->
         <div class="well" id="reservation-target">
           <form class="form-horizontal">
             <fieldset>
               <div class="control-group">
-                <label class="control-label" for="reservationtime">Reservation Dates:</label>
+                <label class="control-label" for="reservationtime">Reservation Date:</label>
                 <div class="controls">
                   <div class="input-prepend">
-                    <span class="add-on"><i class="glyphicon glyphicon-calendar icon-calendar"></i></span>
-                    <input type="text" style="width: 300px" name="reservation" id="reservationtime" value="08/01/2013 1:00 PM - 08/01/2013 1:30 PM"  class="span4"/>
+                    <input type="text" style="" name="date" id="date" value="<?php echo date('m/d/Y'); ?>"  class="span4"/>
                   </div>
                 </div>
               </div>
@@ -37,24 +85,245 @@
                 <label class="control-label">Lanes</label>
                 <div class="controls">
                   <select type="text" class="input-sm" id="lanes" name="lanes" data-original-title="Lanes">
-                    <option value="one">1</option>
-                    <option value="two">2</option>
-                    <option value="three">3</option>
-                    <option value="four">4</option>
-                    <option value="five">5</option>
-                    <option value="six">6</option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                    <option value=6>6</option>
                   </select>
+                </div> 
+		</div>
+                <div class="inline">
+                <label class="control-label">Bowlers</label>
+                <div class="controls">
+                    <input type="text" class="form-control input-sm" id="bowlers" name="bowlers" value=1 style="width: 125px">
+                </div> 
+		</div>
+		<div class="inline">
+                <div class="controls">
+		<div class="dropdown">
+		  <button class="btn dropdown-toggle hide" type="button" id="dropdownMenu1" data-toggle="dropdown">
+   		    Hours 
+		    <span class="caret"></span>
+		  </button>
+		<div class="btn-group" id="hours-buttons">
+		  <?php foreach ( $date->hours as $hour ) { if ( $date->check_hour( $hour ) ) { ?>
+		  <button type="button" class="btn hours btn-trimmed" id="button-<?php echo $hour; ?>"><span class="count'#date' hide"><?php echo $date->count_hour( $hour ); ?></span><?php echo rvFormat::short_military_hour( $hour ); ?><input type="checkbox" name="hour" class="hours hide" data-price="<?php echo $date->settings->get_pricing( $date->day, $hour ); ?>" value="<?php echo $hour; ?>"></button>
+		  <?php } } ?>
+		</div>
+		  <ul class="dropdown-menu hide" role="menu" id="hours-menu" aria-labelledby="dropdownMenu1">
+		  <?php foreach ( $date->hours as $hour ) { if ( $date->check_hour( $hour ) ) { ?>
+		  <li><a id="anchor-<?php echo $hour; ?>"><span class="count hide"><?php echo $date->count_hour( $hour ); ?></span><?php echo rvFormat::military_hour( $hour ); ?><input type="checkbox" name="hour" class="hours hide" data-price="<?php echo $date->settings->get_pricing( $date->day, $hour ); ?>" value="<?php echo $hour; ?>"></a></li>
+		  <?php } } ?>
+		  </ul>
+		</div>
                 </div> 
                 </div>
                 <div class="inline">  
-                <label class="control-label">Bowlers</label>
                 <div class="controls">
-                  <input type="text" class="input-sm" id="bowlers" name="bowlers" data-original-title="Bowlers">
+                  <input type="text" class="input-sm hide" id="hours" name="hours" data-original-title="Bowlers">
                 </div>  
                 </div>
-                <div class="inline">
-                  <input type="checkbox"> *Late Start
+                <div class="inline">  
+                <div class="controls">
+                <button class="btn btn-danger pull-right hide" id="sample-data">Sample Data</button>
                 </div>    
+                </div>    
+                <div class="inline">  
+                <div class="controls">
+                  Price: <span class="inline" id="price-display">$0</span>
+                    <input type="text" class="form-control hide" id="price" value=0>
+                </div>  
+                </div>
+              </div>
+              
+              <br>
+
+              <form role="form" class="reservations">
+                <div class="row">
+                  <label class="col-xs-2" for="name">Name:*</label>
+                  <div class="col-xs-8">
+                    <input type="email" class="form-control" id="name" placeholder="Name">
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-xs-2" for="company">Company:</label>
+                  <div class="col-xs-8">
+                    <input type="text" class="form-control" id="company" placeholder="Company">
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-xs-2" for="phone">Phone:</label>
+                  <div class="col-xs-8">
+                    <input type="text" class="form-control" id="phone" placeholder="Phone">
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-xs-2" for="email">Email:</label>
+                  <div class="col-xs-8">
+                    <input type="text" class="form-control" id="email" placeholder="Email">
+                    <input type="text" class="form-control hide" id="status" value="hold" placeholder="Status">
+                  </div>
+                </div>
+                <div class="btn-group" style="margin-bottom: 1em; width 100%;">
+                  <button type="button" data-value="paid" class="btn status btn-success">Paid</button>
+                  <button type="button" data-value="reserve" class="btn status btn-warning">Reserve</button>
+                  <button type="button" data-value="hold" class="btn status btn-danger">Hold</button>
+                  <button type="button" data-value="credit" class="btn status btn-info">Credit</button>
+                </div>
+                <div class="row">
+                  <label class="col-xs-2" for="notes">Notes:</label>
+                  <div class="col-xs-8">
+                    <textarea class="form-control" id="notes" placeholder="Notes"></textarea>
+                  </div>
+                </div>
+                <div class="row">
+                </div>
+		<br>
+                <div class="row">
+                  <label class="col-xs-2" for="amount-paid">Paid</label>
+                  <div class="col-xs-8">
+                    <input type="text" class="form-control money" id="paid" placeholder="Amount Paid">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-8">
+                    <input class="form-control hide" id="action" placeholder="Action" value="add_reservation">
+                  </div>
+                </div>
+                <button type="button" class="submit btn btn-default pull-left" id="clear-booking">Clear Form</button>
+                <button type="submit" class="submit btn btn-default pull-right" id="cnb">Create New Booking</button>
+              </form>
+              <div id="cnb-result" hidden>Result</div>
+
+
+
+            </fieldset>
+          </form>
+        </div> 
+      </div>
+<?php $myDate = new rvDate(); ?>
+<table class="hide" id="future" style="background: white; position: absolute; z-index: 10; top: 0px; left: 0px;">
+<?php foreach ( $myDate->lanes as $lane ) { ?>
+<tr>
+<?php foreach ( $lane as $hour ) { ?>
+<td style="width: 25px; height: 25px; <?php echo ( $hour == '' ) ? '' : 'background: red;'; ?>"></td>
+<?php } ?>
+</tr>
+<?php } ?>
+</table>
+      <div class="tab col-md-8 calendar pull-right" id="calendar">
+              <div class="well" id="calendar-target">
+                
+	<?php rvAjax::print_calendar_contents( date('m/d/Y') ); ?>
+              </div>
+            </div>
+
+	<?php get_template_part( 'part-reservation-closeup' ); ?>
+      </div>
+    </div>
+  </div>          
+
+<!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg hide" id="modal-button" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Manage Reservation</h4>
+      </div>
+      <div class="modal-body">
+        <div class="well" id="manage-reservation-target">
+          <form class="form-horizontal">
+            <fieldset>
+              <div class="control-group">
+                <label class="control-label" for="reservationtime">Reservation Date:</label>
+                <div class="controls">
+                  <div class="input-prepend">
+                    <input type="text" style="width: 300px" name="date" id="manage-reservation-date" value="<?php echo date('m/d/Y'); ?>"  class="span4"/>
+                  </div>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="inline">
+                <label class="control-label">Lanes</label>
+                <div class="controls">
+                  <select type="text" class="input-sm" id="manage-reservation-lanes" name="lanes" data-original-title="Lanes">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                    <option value=6>6</option>
+                  </select>
+                </div> 
+		</div>
+                <div class="inline">
+                <label class="control-label">Bowlers</label>
+                <div class="controls">
+                    <input type="text" class="form-control input-sm" id="manage-reservation-bowlers" name="bowlers" value=1 style="width: 125px">
+                </div> 
+<!--
+                <div class="controls">
+                  <select type="text" class="input-sm" id="manage-reservation-bowlers" name="bowlers" data-original-title="Bowlers">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                    <option value=6>6</option>
+                    <option value=7>7</option>
+                    <option value=8>8</option>
+                  </select>
+                </div> 
+-->
+		</div>
+		<div class="inline">
+                <div class="controls">
+		<div class="dropdown">
+		  <button class="btn dropdown-toggle hide" type="button" id="dropdownMenu1" data-toggle="dropdown">
+   		    Hours 
+		    <span class="caret"></span>
+		  </button>
+		<div class="btn-group" id="manage-reservation-hours-buttons">
+		  <?php foreach ( $date->hours as $hour ) { 
+		  $hide = ( $date->check_hour( $hour ) ) ? '' : 'hide'; ?>
+		  <button type="button" class="btn manage-reservation-hours <?php echo $hide; ?>" id="manage-reservation-button-<?php echo $hour; ?>"><span class="count'#date' hide"><?php echo $date->count_hour( $hour ); ?></span><?php echo rvFormat::short_military_hour( $hour ); ?><input type="checkbox" name="hour" class="hours hide" data-price="<?php echo $date->settings->get_pricing( $date->day, $hour ); ?>" value="<?php echo $hour; ?>"></button>
+		  <?php } ?>
+		</div>
+		  <ul class="dropdown-menu hide" role="menu" id="manage-reservation-hours-menu" aria-labelledby="dropdownMenu1">
+		  <?php foreach ( $date->hours as $hour ) { 
+		  $hide = ( $date->check_hour( $hour ) ) ? '' : 'hide'; ?>
+		  <li><a id="manage-reservation-anchor-<?php echo $hour; ?>"><span class="count hide"><?php echo $date->count_hour( $hour ); ?></span><?php echo rvFormat::military_hour( $hour ); ?><input type="checkbox" name="hour" class="manage-reservation-hours hide" data-price="<?php echo $date->settings->get_pricing( $date->day, $hour ); ?>" value="<?php echo $hour; ?>"></a></li>
+		  <?php } ?>
+		  </ul>
+		</div>
+<!--
+		<div class="dropdown">
+		  <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown">
+		  Hours 
+		    <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" role="menu" id="manage-reservation-hours-menu" aria-labelledby="dropdownMenu2">
+		  <?php foreach ( $date->hours as $hour ) { ?>
+		  <li><a><?php echo rvFormat::military_hour( $hour ); ?><input type="checkbox" name="hour" class="manage-reservation-hours hide" value="<?php echo $hour; ?>"></a></li>
+		  <?php } ?>
+		  </ul>
+		</div>
+-->
+                </div> 
+                </div>
+                <div class="inline">  
+                <div class="controls">
+                  <input type="text" class="input-sm hide" id="manage-reservation-hours" name="hours" data-original-title="Bowlers">
+                </div>  
+                </div>
               </div>
               
               <br>
@@ -63,490 +332,118 @@
                 <div class="row">
                   <label class="col-xs-4" for="name">Name:*</label>
                   <div class="col-xs-8">
-                    <input type="email" class="form-control" id="name" placeholder="Name">
+                    <input type="email" class="form-control" id="manage-reservation-name" placeholder="Name">
                   </div>
                 </div>
                 <div class="row">
                   <label class="col-xs-4" for="company">Company:</label>
                   <div class="col-xs-8">
-                    <input type="text" class="form-control" id="company" placeholder="Company">
+                    <input type="text" class="form-control" id="manage-reservation-company" placeholder="Company">
                   </div>
                 </div>
                 <div class="row">
                   <label class="col-xs-4" for="phone">Phone:</label>
                   <div class="col-xs-8">
-                    <input type="text" class="form-control" id="phone" placeholder="Phone">
+                    <input type="text" class="form-control" id="manage-reservation-phone" placeholder="Phone">
                   </div>
                 </div>
                 <div class="row">
                   <label class="col-xs-4" for="email">Email:</label>
                   <div class="col-xs-8">
-                    <input type="text" class="form-control" id="email" placeholder="Email">
+                    <input type="text" class="form-control" id="manage-reservation-email" placeholder="Email">
+                    <input type="text" class="form-control hide" id="manage-reservation-status" placeholder="Status">
                   </div>
                 </div>
                 <div class="btn-group" style="margin-bottom: 1em;">
-                  <button type="button" class="btn btn-default">Reserve</button>
-                  <button type="button" class="btn btn-default">Walk Up</button>
-                  <button type="button" class="btn btn-default">Hold</button>
+                  <button type="button" data-value="paid" class="btn status paid">Paid</button>
+                  <button type="button" data-value="reserve" class="btn status reserve">Reserve</button>
+                  <button type="button" data-value="hold" class="btn status hold">Hold</button>
+                  <button type="button" data-value="credit" class="btn status credit">Credit</button>
                 </div>
                 <div class="row">
                   <label class="col-xs-4" for="notes">Notes:</label>
                   <div class="col-xs-12">
-                    <textarea class="form-control" id="notes" placeholder="Notes"></textarea>
+                    <textarea class="form-control" id="manage-reservation-notes" placeholder="Notes"></textarea>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-xs-12">
-                    <input type="checkbox"> *Override Lane Maximum
-                  </div>
                 </div>
+		<br>
                 <div class="row">
-                  <label class="col-xs-4" for="amount-paid">Amount Paid</label>
+                  <label class="col-xs-4" for="amount-paid">Paid</label>
                   <div class="col-xs-8">
-                    <input type="text" class="form-control" id="paid" placeholder="Amount Paid">
+                    <input type="text" class="form-control money" id="manage-reservation-paid" placeholder="Amount Paid">
+                    <input type="text" class="form-control hide" id="manage-reservation-price">
                   </div>
                 </div>
                 <div class="row">
-                  <label class="col-xs-4" for="amount-paid">Action</label>
                   <div class="col-xs-8">
-                    <input class="form-control" id="action" placeholder="Action" value="add_reservation">
+                    <input class="form-control hide" id="manage-reservation-id" placeholder="ID" value="">
+                    <input class="form-control hide" id="manage-reservation-action" placeholder="Action" value="update_reservation">
                   </div>
                 </div>
-                <button type="submit" class="submit btn btn-danger pull-right" id="cnb">Create New Booking</button>
               </form>
-              <div id="cnb-result">Result</div>
+              <div id="manage-reservation-result" hidden>Result</div>
 
 
 
             </fieldset>
           </form>
-          <script type="text/javascript">
-          $(document).ready(function() {
-            $('#reservationtime').daterangepicker({
-              timePicker: true,
-              timePickerIncrement: 30,
-              format: 'MM/DD/YYYY h:mm A'
-              });
-            });
-          </script>
         </div> 
-      </div>
-      <div class="col-md-12 calendar">
-      <legend>
-        <h4 style="color: #eee" id="calendar-trigger">Calendar</h4>
-      </legend>
-            <div class="well" style="overflow: auto">
-               <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-                  <i class="glyphicon glyphicon-calendar icon-calendar icon-large"></i>
-                  <span></span> <b class="caret"></b>
-               </div>
-                <h6>You can remove this date range picker if you find no use for it.</h6>
-               <script type="text/javascript">
-               $(document).ready(function() {
-                  $('#reportrange').daterangepicker(
-                     {
-                        startDate: moment().subtract('days', 29),
-                        endDate: moment(),
-                        minDate: '01/01/2012',
-                        maxDate: '12/31/2014',
-                        dateLimit: { days: 60 },
-                        showDropdowns: true,
-                        showWeekNumbers: true,
-                        timePicker: false,
-                        timePickerIncrement: 1,
-                        timePicker12Hour: true,
-                        ranges: {
-                           'Today': [moment(), moment()],
-                           'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
-                           'Last 7 Days': [moment().subtract('days', 6), moment()],
-                           'Last 30 Days': [moment().subtract('days', 29), moment()],
-                           'This Month': [moment().startOf('month'), moment().endOf('month')],
-                           'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
-                        },
-                        opens: 'left',
-                        buttonClasses: ['btn btn-default'],
-                        applyClass: 'btn-small btn-primary',
-                        cancelClass: 'btn-small',
-                        format: 'MM/DD/YYYY',
-                        separator: ' to ',
-                        locale: {
-                            applyLabel: 'Submit',
-                            fromLabel: 'From',
-                            toLabel: 'To',
-                            customRangeLabel: 'Custom Range',
-                            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr','Sa'],
-                            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                            firstDay: 1
-                        }
-                     },
-                     function(start, end) {
-                      console.log("Callback has been called!");
-                      $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-                     }
-                  );
-                  //Set the initial state of the picker label
-                  $('#reportrange span').html(moment().subtract('days', 29).format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-               });
-               </script>
-            </div>
-
-            <div class="row">
-              <div class="col-md-12 well" id="calendar-target">
-                
-                <div class="row">
-                  <div class="col-md-2">
-                    <span class="label label-default center-block">1</span>
-                  </div>
-                  <div class="col-md-2">
-                    <span class="label label-danger center-block">2</span>
-                  </div>
-                  <div class="col-md-2">
-                    <span class="label label-default center-block">3</span>
-                  </div>
-                  <div class="col-md-2">
-                    <span class="label label-danger center-block">4</span>
-                  </div>
-                  <div class="col-md-2">
-                    <span class="label label-default center-block">5</span>
-                  </div>
-                  <div class="col-md-2">
-                    <span class="label label-danger center-block">6</span>
-                  </div>
-                </div>
-
-                  <div class="row cal-heading">
-                    <div class="col-md-4">
-                      <h5><strong>3:00 pm</strong></h5>
-                    </div>
-                    <div class="col-md-8">
-                      <h5>Status: <span class="btn-danger closed">closed</span></h5>
-                      <h5>$35</h5>
-                      <h5>3 max web lanes</h5>
-                      <h5><a href="#">change</a></h5>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-2 center-block event filled">
-                      <span class="badge">1</span>
-                      <span class="amount">$0.00</span>
-                      <p class="dimension"><small>2x5</small></p>
-                      <h5 class="name"><strong>Evan Gross</strong></h5>
-                      <h6 class="position">BA LEFT VM</h6>
-                    </div>
-                    <div class="col-md-2 center-block event filled">
-                      <span class="badge">2</span>
-                      <span class="amount">$0.00</span>
-                      <p class="dimension"><small>2x5</small></p>
-                      <h5 class="name"><strong>Jon Stewart</strong></h5>
-                      <h6 class="position">BA LEFT VM</h6>
-                    </div>
-                    <div class="col-md-2 center-block event filled">
-                      <span class="badge">3</span>
-                      <span class="amount">$0.00</span>
-                      <p class="dimension"><small>2x5</small></p>
-                      <h5 class="name"><strong>Eric Fischer</strong></h5>
-                      <h6 class="position">BA LEFT VM</h6>
-                    </div>
-                    <div class="col-md-2 center-block event filled">
-                      <span class="badge">4</span>
-                      <span class="amount">$0.00</span>
-                      <p class="dimension"><small>2x5</small></p>
-                      <h5 class="name"><strong>Victor Wooten</strong></h5>
-                      <h6 class="position">BA LEFT VM</h6>
-                    </div>
-                    <div class="col-md-2 center-block event filled">
-                      <span class="badge">5</span>
-                      <span class="amount">$0.00</span>
-                      <p class="dimension"><small>2x5</small></p>
-                      <h5 class="name"><strong>Andrew Smithers</strong></h5>
-                      <h6 class="position">BA LEFT VM</h6>
-                    </div>
-                    <div class="col-md-2 center-block event filled">
-                      <span class="badge">6</span>
-                      <span class="amount">$0.00</span>
-                      <p class="dimension"><small>2x5</small></p>
-                      <h5 class="name"><strong>Willy Parker</strong></h5>
-                      <h6 class="position">BA LEFT VM</h6>
-                    </div>
-                  </div>
-
-                  <div class="row cal-heading">
-                    <div class="col-md-4">
-                      <h5><strong>4:00 pm</strong></h5>
-                    </div>
-                    <div class="col-md-8">
-                      <h5>Status: <span class="btn-success open">open</span></h5>
-                      <h5>$35</h5>
-                      <h5>3 max web lanes</h5>
-                      <h5><a href="#">change</a></h5>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                  </div>
-
-                  <div class="row cal-heading">
-                    <div class="col-md-4">
-                      <h5><strong>5:00 pm</strong></h5>
-                    </div>
-                    <div class="col-md-8">
-                      <h5>Status: <span class="btn-success open">open</span></h5>
-                      <h5>$35</h5>
-                      <h5>3 max web lanes</h5>
-                      <h5><a href="#">change</a></h5>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                  </div>
-
-                  <div class="row cal-heading">
-                    <div class="col-md-4">
-                      <h5><strong>6:00 pm</strong></h5>
-                    </div>
-                    <div class="col-md-8">
-                      <h5>Status: <span class="btn-success open">open</span></h5>
-                      <h5>$45</h5>
-                      <h5>3 max web lanes</h5>
-                      <h5><a href="#">change</a></h5>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                  </div>
-
-                  <div class="row cal-heading">
-                    <div class="col-md-4">
-                      <h5><strong>7:00 pm</strong></h5>
-                    </div>
-                    <div class="col-md-8">
-                      <h5>Status: <span class="btn-success open">open</span></h5>
-                      <h5>$45</h5>
-                      <h5>3 max web lanes</h5>
-                      <h5><a href="#">change</a></h5>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                  </div>
-
-                  <div class="row cal-heading">
-                    <div class="col-md-4">
-                      <h5><strong>8:00 pm</strong></h5>
-                    </div>
-                    <div class="col-md-8">
-                      <h5>Status: <span class="btn-success open">open</span></h5>
-                      <h5>$55</h5>
-                      <h5>3 max web lanes</h5>
-                      <h5><a href="#">change</a></h5>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                  </div>
-
-                  <div class="row cal-heading">
-                    <div class="col-md-4">
-                      <h5><strong>9:00 pm</strong></h5>
-                    </div>
-                    <div class="col-md-8">
-                      <h5>Status: <span class="btn-success open">open</span></h5>
-                      <h5>$55</h5>
-                      <h5>3 max web lanes</h5>
-                      <h5><a href="#">change</a></h5>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                  </div>
-
-                  <div class="row cal-heading">
-                    <div class="col-md-4">
-                      <h5><strong>10:00 pm</strong></h5>
-                    </div>
-                    <div class="col-md-8">
-                      <h5>Status: <span class="btn-success open">open</span></h5>
-                      <h5>$55</h5>
-                      <h5>3 max web lanes</h5>
-                      <h5><a href="#">change</a></h5>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                  </div>
-
-                  <div class="row cal-heading">
-                    <div class="col-md-4">
-                      <h5><strong>11:00 pm</strong></h5>
-                    </div>
-                    <div class="col-md-8">
-                      <h5>Status: <span class="btn-success open">open</span></h5>
-                      <h5>$35</h5>
-                      <h5>3 max web lanes</h5>
-                      <h5><a href="#">change</a></h5>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                    <div class="col-md-2 center-block event">
-                      
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
 
       </div>
-    </div>
-  </div>          
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
+        <button type="button" class="btn btn-primary update" data-dismiss="modal">Save changes</button>
+        <button type="button" class="btn btn-warning cancel" data-dismiss="modal" id="cancel-reservation">Cancel reservation</button>
+        <button type="button" class="btn btn-warning pend" data-dismiss="modal" id="pend-reservation">Set pending</button>
+        <button type="button" class="btn btn-danger delete" data-dismiss="modal" id="delete-reservation">Delete reservation</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </body>
 </html>
 <?php
 
                 echo "<script> var ajaxurl = '" . admin_url( 'admin-ajax.php' ) . "'; </script>";
-                echo "<script type='text/javascript' src='" . plugins_url() . "/reservations/assets/reservations.js?ver=1.01'></script>";
 
 ?>
+          <script type="text/javascript">
+	  $(function() {
+          	$('#date, #manage-reservation-date').datepicker().change( function() {
+			$('#reportrange').val( $(this).val() ).trigger( 'change' );
+		});
+	  });
+	  var pluginsurl = "<?php echo plugins_url(); ?>";
+          </script>
+<script>
+var subscript = "<?php echo plugins_url() . "/reservations/assets/subscript.js?ver=1.01"; ?>";
+var hourscript = "<?php echo plugins_url() . "/reservations/assets/hours.js"; ?>";
+</script>
+<script>
+jQuery(function($) {
+	$('.glyphicon').hover( function() {
+	});
+	$('.glyphicon-chevron-left').click(function() {
+		chosen = new Date($('#reportrange').val());
+		chosen.setDate(chosen.getDate()-1);
+		$('#reportrange').val(($.datepicker.formatDate('mm/dd/yy', chosen))).trigger("change");
+	});
+	$('.glyphicon-chevron-right').click(function() {
+		chosen = new Date($('#reportrange').val());
+		chosen.setDate(chosen.getDate()+1);
+		$('#reportrange').val(($.datepicker.formatDate('mm/dd/yy', chosen))).trigger("change");
+	});
+	$('#todays-date').click(function() {
+		chosen = new Date();
+		$('#reportrange').val(($.datepicker.formatDate('mm/dd/yy', chosen))).trigger("change");
+	});
+});
+</script>
+<script type='text/javascript' src='<?php echo plugins_url(); ?>/reservations/assets/reservations.js?ver=1.01'></script>
+<script type='text/javascript' src='<?php echo plugins_url(); ?>/reservations/assets/private.js?ver=1.01'></script>
+<script type='text/javascript' src='<?php echo plugins_url(); ?>/reservations/assets/subscript.js?ver=1.01'></script>
+<script type='text/javascript' src='<?php echo plugins_url(); ?>/reservations/assets/search.js?ver=1.01'></script>
+<!--BACKBONE-->
+<script type='text/javascript' src='<?php echo plugins_url(); ?>/reservations/assets/js/views/appView.js?ver=1.01'></script>

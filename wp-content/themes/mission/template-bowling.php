@@ -88,7 +88,7 @@ echo '<div class="cal-block '.$date_class.'">'.$date.'</div>';
     <h2><?php simple_block( 53, 'Bowling Details' ); ?> <small><?php simple_block( 54, "Select a Tab" ); ?></small></h2>  
   <div class="tabbed_area">  
       
-        <script src="<?php echo get_template_directory_uri(); ?>/js/functions.js" type="text/javascript"></script>   
+        <!--<script src="<?php echo get_template_directory_uri(); ?>/js/functions.js" type="text/javascript"></script>-->   
 <ul class="tabs">  
     <li><a href="javascript:tabSwitch('tab_1', 'content_1');" id="tab_1" class="active"><?php simple_block( 151, 'Information' ); ?></a></li>  
     <li><a href="javascript:tabSwitch('tab_2', 'content_2');" id="tab_2"><?php simple_block( 152, 'Pricing' ); ?></a></li>  
